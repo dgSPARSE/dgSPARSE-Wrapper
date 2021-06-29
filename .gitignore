@@ -1,0 +1,9 @@
+bin
+.vscode
+*.so
+*.o
+*.a
+*.log
+*.swo
+*.swp
+*.xml
