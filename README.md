@@ -40,7 +40,30 @@ As shown in the figure, before using dgSPARSE Wrapper, programs and frameworks l
 ## Example
 
 ### Kernel Example
+Here we show how to run an SpMM with original cusparse library and new library wrapped with dgSPARSE-Wrapper.
 
+0. Build dgSPARSE wrapper 
+
+1. Build docker image
+
+2. Run container
+```bash
+docker run -it --runtime=nvidia --rm \
+-v [path-to-dgSPARSE-Wrapper]:/dgSPARSE-Wrapper \
+dgl-gpu:torch-1.2.0-cu11 \
+/bin/bash
+
+nvcc -lcusparse -o cuda_spmm spmm.cu.cc
+
+# Test original cusparse performance
+./cuda_spmm data/p2p-Gnutella31.mtx
+
+# Test new library performance
+cp /usr/local/cuda/lib64/libcusparse.so.11.3.0.10 /usr/local/cuda/lib64/libcusparse.so.real
+cp /dgSPARSE-Wrapper/lib/dgsparse.so /usr/local/cuda/lib64/
+LD_PRELOAD=/dgSPARSE-Wrapper/bin/libdgsparsewrapper.so ./cuda_spmm data/p2p-Gnutella31.mtx
+
+```
 ### Framework Example
 
 Here we use a Graph Neural Networks (GCN) example based on [DGL](url=https://www.dgl.ai/). We use docker based on the dockerfile provided by DGL.
