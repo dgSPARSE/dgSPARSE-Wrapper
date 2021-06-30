@@ -17,15 +17,24 @@ As shown in the figure, before using dgSPARSE Wrapper, programs and frameworks l
 ## File Structure
 
 ```
-./bin: The folder which contains the generated dgSPARSE Wrapper library.
-./include: The folder which contains necessary header files, including the symbol helper, the logger, and etc.
-    ./cuda-11.1: Header files of CUDA v11.1.
-    ./dgsparse-0.1: Header files of dgSPARSE v0.1.
-./lib: The folder which contains sparse libraries to be used.
-./src: The folder which contains CUDA interface implementations of dgSPARSE wrapper.
-    ./sparse_main.cc: All CUDA interface implementations. For a certain interface, users can modify the code to decide a specific implemenation from a given sparse library. Currently, all CUDA interfaces are based on CUDA v11.1.
-./Makefile
-./README.md
+.
+├── bin: The folder which contains the generated dgSPARSE Wrapper library.
+│   └── libdgsparsewrapper.so
+├── example
+│   └── dgl
+├── include: The folder which contains necessary header files, including the symbol helper, the logger, and etc.
+│   ├── common.h
+│   ├── cuda-11.1: Header files of CUDA v11.1.
+│   ├── dgsparse-0.1: Header files of dgSPARSE v0.1.
+│   ├── logger.h
+│   └── symbol_helper_cusparse.h
+├── lib: The folder which contains sparse libraries to be used.
+│   └── dgsparse.so
+├── Makefile
+├── README.md
+└── src: The folder which contains CUDA interface implementations of dgSPARSE wrapper.
+    ├── sparse_main.cc: All CUDA interface implementations. For a certain interface, users can modify the code to decide a specific implemenation from a given sparse library. Currently, all CUDA interfaces are based on CUDA v11.1.
+    └── symbol_helper.cc
 ```
 
 ## Example
