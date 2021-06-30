@@ -42,9 +42,19 @@ As shown in the figure, before using dgSPARSE Wrapper, programs and frameworks l
 ### Kernel Example
 Here we show how to run an SpMM with original cusparse library and new library wrapped with dgSPARSE-Wrapper.
 
-0. Build dgSPARSE wrapper 
+0. Build dgSPARSE Wrapper
+```bash
+cd [path-to-dgSPARSE-Wrapper]
+make clean & make
+```
 
 1. Build docker image
+```bash
+cd [path-to-dgSPARSE-Wrapper]/example/dgl/docker
+wget https://data.dgl.ai/dataset/FB15k.zip -P install/
+docker build -t dgl-gpu:torch-1.2.0-cu11 -f Dockerfile.ci_gpu_cu11 .
+cd [path-to-dgSPARSE-Wrapper]
+```
 
 2. Run container
 ```bash
@@ -53,7 +63,8 @@ docker run -it --runtime=nvidia --rm \
 dgl-gpu:torch-1.2.0-cu11 \
 /bin/bash
 
-nvcc -lcusparse -o cuda_spmm spmm.cu.cc
+cd /dgSPARSE-Wrapper/example/cuda_spmm
+nvcc -lcusparse -std=c++11 -o cuda_spmm spmm.cu
 
 # Test original cusparse performance
 ./cuda_spmm data/p2p-Gnutella31.mtx
@@ -68,7 +79,11 @@ LD_PRELOAD=/dgSPARSE-Wrapper/bin/libdgsparsewrapper.so ./cuda_spmm data/p2p-Gnut
 
 Here we use a Graph Neural Networks (GCN) example based on [DGL](url=https://www.dgl.ai/). We use docker based on the dockerfile provided by DGL.
 
-0. Generate dgSPARSE Wrapper
+0. Build dgSPARSE Wrapper
+```bash
+cd [path-to-dgSPARSE-Wrapper]
+make clean & make
+```
 
 1. Build docker image
 ```bash
@@ -102,9 +117,13 @@ python3 train.py --dataset cora --gpu 0 --self-loop
 cd /usr/local/cuda-11.1/lib64/
 cp /dgsparsewrapper/libdgsparsewrapper.so ./
 cp /sparselib/dgsparse.so ./
-mv libcusparse.so.11.3.0.10 libcusparse.so.real # rename the original cuSPARSE
+
+# rename the original cuSPARSE
+mv libcusparse.so.11.3.0.10 libcusparse.so.real
 rm libcusparse.so.11
-mv libdgsparsewrapper.so libcusparse.so.11 # use dgSPARSE Wrapper to replace cuSPARSE
+
+# use dgSPARSE Wrapper to replace cuSPARSE
+mv libdgsparsewrapper.so libcusparse.so.11 
 cd /gcn
 python3 train.py --dataset cora --gpu 0 --self-loop
 ```

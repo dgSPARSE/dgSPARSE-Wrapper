@@ -11,11 +11,9 @@
 #define LOG_LEVEL INFO
 
 #define TRACE 0
-#define DEBUG 1
-#define MEMORY_FOOTPRINT 7
-#define INFO 8
-#define WARNING 9
-#define ERROR 10
+#define DEBUG 3
+#define INFO 6
+#define ERROR 9
 
 #if (debug)
 #define print_debug(format, args...) printf("%s:%d(%s) : " format, __FILE__, __LINE__, __func__, ##args)
