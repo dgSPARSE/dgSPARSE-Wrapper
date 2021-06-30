@@ -7,3 +7,4 @@ bin
 *.swo
 *.swp
 *.xml
+*.DS_Store
