@@ -49,10 +49,10 @@
 #if !defined(CUSPARSE_H_)
 #define CUSPARSE_H_
 
-#include "cuda-11.1/cuComplex.h"
-#include "cuda-11.1/cuda_fp16.h"
-#include "cuda-11.1/driver_types.h"
-#include "cuda-11.1/library_types.h"
+#include "cuda-11.0/cuComplex.h"
+#include "cuda-11.0/cuda_fp16.h"
+#include "cuda-11.0/driver_types.h"
+#include "cuda-11.0/library_types.h"
 #include <stdint.h>
 
 //##############################################################################
@@ -60,9 +60,9 @@
 //##############################################################################
 
 #define CUSPARSE_VER_MAJOR 11
-#define CUSPARSE_VER_MINOR 2
+#define CUSPARSE_VER_MINOR 1
 #define CUSPARSE_VER_PATCH 0
-#define CUSPARSE_VER_BUILD 275
+#define CUSPARSE_VER_BUILD 218
 #define CUSPARSE_VERSION (CUSPARSE_VER_MAJOR * 1000 + \
                           CUSPARSE_VER_MINOR *  100 + \
                           CUSPARSE_VER_PATCH)

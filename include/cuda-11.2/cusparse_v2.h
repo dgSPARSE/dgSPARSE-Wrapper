@@ -49,6 +49,6 @@
 #if !defined(CUSPARSE_V2_H_)
 #define CUSPARSE_V2_H_
 
-#include "cuda-11.1/cusparse.h"
+#include "cuda-11.2/cusparse.h"
 
 #endif

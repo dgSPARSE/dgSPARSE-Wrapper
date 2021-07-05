@@ -72,7 +72,7 @@
 extern "C" {
 #endif /* __cplusplus */
 
-#include "cuda-11.1/vector_types.h"
+#include "cuda-11.0/vector_types.h"
 
 typedef float2 cuFloatComplex;
 

@@ -390,7 +390,7 @@ __CUDA_FP16_DECL__ int __half2int_rn(__half h);
 * \behavior reentrant, thread safe
 * \endinternal
 */
-__CUDA_HOSTDEVICE_FP16_DECL__ int __half2int_rz(__half h);
+__CUDA_FP16_DECL__ int __half2int_rz(__half h);
 /**
 * \ingroup CUDA_MATH__HALF_MISC
 * \brief Convert a half to a signed integer in round-down mode.
@@ -439,7 +439,7 @@ __CUDA_FP16_DECL__ int __half2int_ru(__half h);
 * \behavior reentrant, thread safe
 * \endinternal
 */
-__CUDA_HOSTDEVICE_FP16_DECL__ __half __int2half_rn(int i);
+__CUDA_FP16_DECL__ __half __int2half_rn(int i);
 /**
 * \ingroup CUDA_MATH__HALF_MISC
 * \brief Convert a signed integer to a half in round-towards-zero mode.
@@ -521,7 +521,7 @@ __CUDA_FP16_DECL__ short int __half2short_rn(__half h);
 * \behavior reentrant, thread safe
 * \endinternal
 */
-__CUDA_HOSTDEVICE_FP16_DECL__ short int __half2short_rz(__half h);
+__CUDA_FP16_DECL__ short int __half2short_rz(__half h);
 /**
 * \ingroup CUDA_MATH__HALF_MISC
 * \brief Convert a half to a signed short integer in round-down mode.
@@ -571,7 +571,7 @@ __CUDA_FP16_DECL__ short int __half2short_ru(__half h);
 * \behavior reentrant, thread safe
 * \endinternal
 */
-__CUDA_HOSTDEVICE_FP16_DECL__ __half __short2half_rn(short int i);
+__CUDA_FP16_DECL__ __half __short2half_rn(short int i);
 /**
 * \ingroup CUDA_MATH__HALF_MISC
 * \brief Convert a signed short integer to a half in round-towards-zero mode.
@@ -652,7 +652,7 @@ __CUDA_FP16_DECL__ unsigned int __half2uint_rn(__half h);
 * \behavior reentrant, thread safe
 * \endinternal
 */
-__CUDA_HOSTDEVICE_FP16_DECL__ unsigned int __half2uint_rz(__half h);
+__CUDA_FP16_DECL__ unsigned int __half2uint_rz(__half h);
 /**
 * \ingroup CUDA_MATH__HALF_MISC
 * \brief Convert a half to an unsigned integer in round-down mode.
@@ -701,7 +701,7 @@ __CUDA_FP16_DECL__ unsigned int __half2uint_ru(__half h);
 * \behavior reentrant, thread safe
 * \endinternal
 */
-__CUDA_HOSTDEVICE_FP16_DECL__ __half __uint2half_rn(unsigned int i);
+__CUDA_FP16_DECL__ __half __uint2half_rn(unsigned int i);
 /**
 * \ingroup CUDA_MATH__HALF_MISC
 * \brief Convert an unsigned integer to a half in round-towards-zero mode.
@@ -784,7 +784,7 @@ __CUDA_FP16_DECL__ unsigned short int __half2ushort_rn(__half h);
 * \behavior reentrant, thread safe
 * \endinternal
 */
-__CUDA_HOSTDEVICE_FP16_DECL__ unsigned short int __half2ushort_rz(__half h);
+__CUDA_FP16_DECL__ unsigned short int __half2ushort_rz(__half h);
 /**
 * \ingroup CUDA_MATH__HALF_MISC
 * \brief Convert a half to an unsigned short integer in round-down mode.
@@ -826,7 +826,7 @@ __CUDA_FP16_DECL__ unsigned short int __half2ushort_ru(__half h);
 * \behavior reentrant, thread safe
 * \endinternal
 */
-__CUDA_HOSTDEVICE_FP16_DECL__ __half __ushort2half_rn(unsigned short int i);
+__CUDA_FP16_DECL__ __half __ushort2half_rn(unsigned short int i);
 /**
 * \ingroup CUDA_MATH__HALF_MISC
 * \brief Convert an unsigned short integer to a half in round-towards-zero
@@ -910,7 +910,7 @@ __CUDA_FP16_DECL__ unsigned long long int __half2ull_rn(__half h);
 * \behavior reentrant, thread safe
 * \endinternal
 */
-__CUDA_HOSTDEVICE_FP16_DECL__ unsigned long long int __half2ull_rz(__half h);
+__CUDA_FP16_DECL__ unsigned long long int __half2ull_rz(__half h);
 /**
 * \ingroup CUDA_MATH__HALF_MISC
 * \brief Convert a half to an unsigned 64-bit integer in round-down mode.
@@ -960,7 +960,7 @@ __CUDA_FP16_DECL__ unsigned long long int __half2ull_ru(__half h);
 * \behavior reentrant, thread safe
 * \endinternal
 */
-__CUDA_HOSTDEVICE_FP16_DECL__ __half __ull2half_rn(unsigned long long int i);
+__CUDA_FP16_DECL__ __half __ull2half_rn(unsigned long long int i);
 /**
 * \ingroup CUDA_MATH__HALF_MISC
 * \brief Convert an unsigned 64-bit integer to a half in round-towards-zero
@@ -1043,7 +1043,7 @@ __CUDA_FP16_DECL__ long long int __half2ll_rn(__half h);
 * \behavior reentrant, thread safe
 * \endinternal
 */
-__CUDA_HOSTDEVICE_FP16_DECL__ long long int __half2ll_rz(__half h);
+__CUDA_FP16_DECL__ long long int __half2ll_rz(__half h);
 /**
 * \ingroup CUDA_MATH__HALF_MISC
 * \brief Convert a half to a signed 64-bit integer in round-down mode.
@@ -1093,7 +1093,7 @@ __CUDA_FP16_DECL__ long long int __half2ll_ru(__half h);
 * \behavior reentrant, thread safe
 * \endinternal
 */
-__CUDA_HOSTDEVICE_FP16_DECL__ __half __ll2half_rn(long long int i);
+__CUDA_FP16_DECL__ __half __ll2half_rn(long long int i);
 /**
 * \ingroup CUDA_MATH__HALF_MISC
 * \brief Convert a signed 64-bit integer to a half in round-towards-zero mode.
@@ -3227,25 +3227,6 @@ __CUDA_FP16_DECL__ __half2 __hmin2_nan(const __half2 a, const __half2 b);
 __CUDA_FP16_DECL__ __half2 __hfma2_relu(const __half2 a, const __half2 b, const __half2 c);
 #endif /*__CUDA_ARCH__ >= 800 || !defined(__CUDA_ARCH__)*/
 /**
-* \ingroup CUDA_MATH__HALF2_ARITHMETIC
-* \brief Performs fast complex multiply-accumulate
-*
-* \details Interprets vector \p half2 input pairs \p a, \p b, and \p c as
-* complex numbers in \p half precision and performs
-* complex multiply-accumulate operation: a*b + c
-* \param[in] a - half2. Is only being read.
-* \param[in] b - half2. Is only being read.
-* \param[in] c - half2. Is only being read.
-*
-* \returns half2
-* \retval The result of complex multiply-accumulate operation on complex numbers \p a, \p b, and \p c
-* \internal
-* \exception-guarantee no-throw guarantee
-* \behavior reentrant, thread safe
-* \endinternal
-*/
-__CUDA_FP16_DECL__ __half2 __hcmadd(const __half2 a, const __half2 b, const __half2 c);
-/**
 * \ingroup CUDA_MATH__HALF_FUNCTIONS
 * \brief Calculates \p half square root in round-to-nearest-even mode.
 *
@@ -3626,6 +3607,6 @@ __CUDA_FP16_DECL__ __half atomicAdd(__half *address, __half val);
 #endif /* defined(__cplusplus) */
 
 /* Note the .hpp file is included even for host-side compilation, to capture the "half" & "half2" definitions */
-#include "cuda-11.1/cuda_fp16.hpp"
+#include "cuda-11.0/cuda_fp16.hpp"
 
 #endif /* end of include guard: __CUDA_FP16_H__ */

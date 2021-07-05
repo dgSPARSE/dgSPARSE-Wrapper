@@ -73,8 +73,9 @@ nvcc -lcusparse -std=c++11 -o cuda_spmm spmm.cu
 
 # Test new library performance
 cp /usr/local/cuda/lib64/libcusparse.so.11.3.0.10 /usr/local/cuda/lib64/libcusparse.so.real
-cp /dgSPARSE-Wrapper/lib/dgsparse.so /usr/local/cuda/lib64/
-LD_PRELOAD=/dgSPARSE-Wrapper/bin/libdgsparsewrapper.so ./cuda_spmm data/p2p-Gnutella31.mtx
+mkdir -p /usr/local/dgsparse/lib64/
+cp /dgSPARSE-Wrapper/lib/dgsparse.so /usr/local/dgsparse/lib64/
+LD_PRELOAD=/dgSPARSE-Wrapper/bin/libdgsparsewrapper.so.11.1 ./cuda_spmm data/p2p-Gnutella31.mtx
 
 ```
 ### Framework Example
@@ -117,15 +118,16 @@ python3 train.py --dataset cora --gpu 0 --self-loop
 4. Run GCN based on dgSPARSE
 ```bash
 cd /usr/local/cuda-11.1/lib64/
-cp /dgsparsewrapper/libdgsparsewrapper.so ./
-cp /sparselib/dgsparse.so ./
+cp /dgsparsewrapper/libdgsparsewrapper.so.11.1 ./
+mkdir -p /usr/local/dgsparse/lib64/
+cp /sparselib/dgsparse.so /usr/local/dgsparse/lib64/
 
 # rename the original cuSPARSE
 mv libcusparse.so.11.3.0.10 libcusparse.so.real
 rm libcusparse.so.11
 
 # use dgSPARSE Wrapper to replace cuSPARSE
-mv libdgsparsewrapper.so libcusparse.so.11 
+mv libdgsparsewrapper.so.11.1 libcusparse.so.11 
 cd /gcn
 python3 train.py --dataset cora --gpu 0 --self-loop
 ```

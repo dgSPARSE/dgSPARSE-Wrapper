@@ -1,6 +1,6 @@
 #include <string.h>
 
-#include "cuda-11.1/cusparse_v2.h"
+#include "cuda-11.0/cusparse_v2.h"
 #include "dgsparse/dgsparse.h"
 #include "symbol_helper_cusparse.h"
 
@@ -10,14 +10,14 @@ using namespace sparse_wrapper;
 
 cusparseStatus_t CUSPARSEAPI
 cusparseCreate(cusparseHandle_t *handle) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCreate);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCreate);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle);
 }
 
 cusparseStatus_t CUSPARSEAPI
 cusparseDestroy(cusparseHandle_t handle) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDestroy);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDestroy);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle);
 }
@@ -25,7 +25,7 @@ cusparseDestroy(cusparseHandle_t handle) {
 cusparseStatus_t CUSPARSEAPI
 cusparseGetVersion(cusparseHandle_t handle,
                    int *version) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseGetVersion);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseGetVersion);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      version);
@@ -34,21 +34,21 @@ cusparseGetVersion(cusparseHandle_t handle,
 cusparseStatus_t CUSPARSEAPI
 cusparseGetProperty(libraryPropertyType type,
                     int *value) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseGetProperty);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseGetProperty);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(type, value);
 }
 
 const char *CUSPARSEAPI
 cusparseGetErrorName(cusparseStatus_t status) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseGetErrorName);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseGetErrorName);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(status);
 }
 
 const char *CUSPARSEAPI
 cusparseGetErrorString(cusparseStatus_t status) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseGetErrorString);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseGetErrorString);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(status);
 }
@@ -56,7 +56,7 @@ cusparseGetErrorString(cusparseStatus_t status) {
 cusparseStatus_t CUSPARSEAPI
 cusparseSetStream(cusparseHandle_t handle,
                   cudaStream_t streamId) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSetStream);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSetStream);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      streamId);
@@ -65,7 +65,7 @@ cusparseSetStream(cusparseHandle_t handle,
 cusparseStatus_t CUSPARSEAPI
 cusparseGetStream(cusparseHandle_t handle,
                   cudaStream_t *streamId) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseGetStream);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseGetStream);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      streamId);
@@ -74,7 +74,7 @@ cusparseGetStream(cusparseHandle_t handle,
 cusparseStatus_t CUSPARSEAPI
 cusparseGetPointerMode(cusparseHandle_t handle,
                        cusparsePointerMode_t *mode) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseGetPointerMode);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseGetPointerMode);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      mode);
@@ -83,7 +83,7 @@ cusparseGetPointerMode(cusparseHandle_t handle,
 cusparseStatus_t CUSPARSEAPI
 cusparseSetPointerMode(cusparseHandle_t handle,
                        cusparsePointerMode_t mode) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSetPointerMode);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSetPointerMode);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      mode);
@@ -95,14 +95,14 @@ cusparseSetPointerMode(cusparseHandle_t handle,
 
 cusparseStatus_t CUSPARSEAPI
 cusparseCreateMatDescr(cusparseMatDescr_t *descrA) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCreateMatDescr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCreateMatDescr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(descrA);
 }
 
 cusparseStatus_t CUSPARSEAPI
 cusparseDestroyMatDescr(cusparseMatDescr_t descrA) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDestroyMatDescr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDestroyMatDescr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(descrA);
 }
@@ -110,7 +110,7 @@ cusparseDestroyMatDescr(cusparseMatDescr_t descrA) {
 cusparseStatus_t CUSPARSEAPI
 cusparseCopyMatDescr(cusparseMatDescr_t dest,
                      const cusparseMatDescr_t src) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCopyMatDescr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCopyMatDescr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(dest,
                      src);
@@ -119,7 +119,7 @@ cusparseCopyMatDescr(cusparseMatDescr_t dest,
 cusparseStatus_t CUSPARSEAPI
 cusparseSetMatType(cusparseMatDescr_t descrA,
                    cusparseMatrixType_t type) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSetMatType);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSetMatType);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(descrA,
                      type);
@@ -127,7 +127,7 @@ cusparseSetMatType(cusparseMatDescr_t descrA,
 
 cusparseMatrixType_t CUSPARSEAPI
 cusparseGetMatType(const cusparseMatDescr_t descrA) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseGetMatType);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseGetMatType);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(descrA);
 }
@@ -135,7 +135,7 @@ cusparseGetMatType(const cusparseMatDescr_t descrA) {
 cusparseStatus_t CUSPARSEAPI
 cusparseSetMatFillMode(cusparseMatDescr_t descrA,
                        cusparseFillMode_t fillMode) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSetMatFillMode);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSetMatFillMode);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(descrA,
                      fillMode);
@@ -143,7 +143,7 @@ cusparseSetMatFillMode(cusparseMatDescr_t descrA,
 
 cusparseFillMode_t CUSPARSEAPI
 cusparseGetMatFillMode(const cusparseMatDescr_t descrA) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseGetMatFillMode);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseGetMatFillMode);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(descrA);
 }
@@ -151,7 +151,7 @@ cusparseGetMatFillMode(const cusparseMatDescr_t descrA) {
 cusparseStatus_t CUSPARSEAPI
 cusparseSetMatDiagType(cusparseMatDescr_t descrA,
                        cusparseDiagType_t diagType) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSetMatDiagType);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSetMatDiagType);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(descrA,
                      diagType);
@@ -159,7 +159,7 @@ cusparseSetMatDiagType(cusparseMatDescr_t descrA,
 
 cusparseDiagType_t CUSPARSEAPI
 cusparseGetMatDiagType(const cusparseMatDescr_t descrA) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseGetMatDiagType);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseGetMatDiagType);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(descrA);
 }
@@ -167,7 +167,7 @@ cusparseGetMatDiagType(const cusparseMatDescr_t descrA) {
 cusparseStatus_t CUSPARSEAPI
 cusparseSetMatIndexBase(cusparseMatDescr_t descrA,
                         cusparseIndexBase_t base) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSetMatIndexBase);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSetMatIndexBase);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(descrA,
                      base);
@@ -175,133 +175,133 @@ cusparseSetMatIndexBase(cusparseMatDescr_t descrA,
 
 cusparseIndexBase_t CUSPARSEAPI
 cusparseGetMatIndexBase(const cusparseMatDescr_t descrA) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseGetMatIndexBase);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseGetMatIndexBase);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(descrA);
 }
 
 cusparseStatus_t CUSPARSEAPI
 cusparseCreateCsrsv2Info(csrsv2Info_t *info) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCreateCsrsv2Info);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCreateCsrsv2Info);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(info);
 }
 
 cusparseStatus_t CUSPARSEAPI
 cusparseDestroyCsrsv2Info(csrsv2Info_t info) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDestroyCsrsv2Info);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDestroyCsrsv2Info);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(info);
 }
 
 cusparseStatus_t CUSPARSEAPI
 cusparseCreateCsric02Info(csric02Info_t *info) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCreateCsric02Info);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCreateCsric02Info);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(info);
 }
 
 cusparseStatus_t CUSPARSEAPI
 cusparseDestroyCsric02Info(csric02Info_t info) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDestroyCsric02Info);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDestroyCsric02Info);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(info);
 }
 
 cusparseStatus_t CUSPARSEAPI
 cusparseCreateBsric02Info(bsric02Info_t *info) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCreateBsric02Info);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCreateBsric02Info);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(info);
 }
 
 cusparseStatus_t CUSPARSEAPI
 cusparseDestroyBsric02Info(bsric02Info_t info) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDestroyBsric02Info);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDestroyBsric02Info);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(info);
 }
 
 cusparseStatus_t CUSPARSEAPI
 cusparseCreateCsrilu02Info(csrilu02Info_t *info) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCreateCsrilu02Info);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCreateCsrilu02Info);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(info);
 }
 
 cusparseStatus_t CUSPARSEAPI
 cusparseDestroyCsrilu02Info(csrilu02Info_t info) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDestroyCsrilu02Info);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDestroyCsrilu02Info);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(info);
 }
 
 cusparseStatus_t CUSPARSEAPI
 cusparseCreateBsrilu02Info(bsrilu02Info_t *info) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCreateBsrilu02Info);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCreateBsrilu02Info);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(info);
 }
 
 cusparseStatus_t CUSPARSEAPI
 cusparseDestroyBsrilu02Info(bsrilu02Info_t info) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDestroyBsrilu02Info);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDestroyBsrilu02Info);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(info);
 }
 
 cusparseStatus_t CUSPARSEAPI
 cusparseCreateBsrsv2Info(bsrsv2Info_t *info) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCreateBsrsv2Info);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCreateBsrsv2Info);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(info);
 }
 
 cusparseStatus_t CUSPARSEAPI
 cusparseDestroyBsrsv2Info(bsrsv2Info_t info) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDestroyBsrsv2Info);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDestroyBsrsv2Info);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(info);
 }
 
 cusparseStatus_t CUSPARSEAPI
 cusparseCreateBsrsm2Info(bsrsm2Info_t *info) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCreateBsrsm2Info);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCreateBsrsm2Info);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(info);
 }
 
 cusparseStatus_t CUSPARSEAPI
 cusparseDestroyBsrsm2Info(bsrsm2Info_t info) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDestroyBsrsm2Info);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDestroyBsrsm2Info);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(info);
 }
 
 cusparseStatus_t CUSPARSEAPI
 cusparseCreateCsru2csrInfo(csru2csrInfo_t *info) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCreateCsru2csrInfo);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCreateCsru2csrInfo);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(info);
 }
 
 cusparseStatus_t CUSPARSEAPI
 cusparseDestroyCsru2csrInfo(csru2csrInfo_t info) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDestroyCsru2csrInfo);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDestroyCsru2csrInfo);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(info);
 }
 
 cusparseStatus_t CUSPARSEAPI
 cusparseCreateColorInfo(cusparseColorInfo_t *info) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCreateColorInfo);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCreateColorInfo);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(info);
 }
 
 cusparseStatus_t CUSPARSEAPI
 cusparseDestroyColorInfo(cusparseColorInfo_t info) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDestroyColorInfo);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDestroyColorInfo);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(info);
 }
@@ -309,7 +309,7 @@ cusparseDestroyColorInfo(cusparseColorInfo_t info) {
 cusparseStatus_t CUSPARSEAPI
 cusparseSetColorAlgs(cusparseColorInfo_t info,
                      cusparseColorAlg_t alg) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSetColorAlgs);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSetColorAlgs);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(info, alg);
 }
@@ -317,21 +317,21 @@ cusparseSetColorAlgs(cusparseColorInfo_t info,
 cusparseStatus_t CUSPARSEAPI
 cusparseGetColorAlgs(cusparseColorInfo_t info,
                      cusparseColorAlg_t *alg) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseGetColorAlgs);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseGetColorAlgs);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(info, alg);
 }
 
 cusparseStatus_t CUSPARSEAPI
 cusparseCreatePruneInfo(pruneInfo_t *info) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCreatePruneInfo);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCreatePruneInfo);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(info);
 }
 
 cusparseStatus_t CUSPARSEAPI
 cusparseDestroyPruneInfo(pruneInfo_t info) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDestroyPruneInfo);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDestroyPruneInfo);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(info);
 }
@@ -348,7 +348,7 @@ cusparseSaxpyi(cusparseHandle_t handle,
                const int *xInd,
                float *y,
                cusparseIndexBase_t idxBase) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSaxpyi);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSaxpyi);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      nnz,
@@ -367,7 +367,7 @@ cusparseDaxpyi(cusparseHandle_t handle,
                const int *xInd,
                double *y,
                cusparseIndexBase_t idxBase) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDaxpyi);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDaxpyi);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      nnz,
@@ -386,7 +386,7 @@ cusparseCaxpyi(cusparseHandle_t handle,
                const int *xInd,
                cuComplex *y,
                cusparseIndexBase_t idxBase) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCaxpyi);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCaxpyi);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      nnz,
@@ -405,7 +405,7 @@ cusparseZaxpyi(cusparseHandle_t handle,
                const int *xInd,
                cuDoubleComplex *y,
                cusparseIndexBase_t idxBase) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZaxpyi);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZaxpyi);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      nnz,
@@ -423,7 +423,7 @@ cusparseSgthr(cusparseHandle_t handle,
               float *xVal,
               const int *xInd,
               cusparseIndexBase_t idxBase) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSgthr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSgthr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      nnz,
@@ -440,7 +440,7 @@ cusparseDgthr(cusparseHandle_t handle,
               double *xVal,
               const int *xInd,
               cusparseIndexBase_t idxBase) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDgthr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDgthr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      nnz,
@@ -457,7 +457,7 @@ cusparseCgthr(cusparseHandle_t handle,
               cuComplex *xVal,
               const int *xInd,
               cusparseIndexBase_t idxBase) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCgthr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCgthr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      nnz,
@@ -474,7 +474,7 @@ cusparseZgthr(cusparseHandle_t handle,
               cuDoubleComplex *xVal,
               const int *xInd,
               cusparseIndexBase_t idxBase) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZgthr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZgthr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      nnz,
@@ -491,7 +491,7 @@ cusparseSgthrz(cusparseHandle_t handle,
                float *xVal,
                const int *xInd,
                cusparseIndexBase_t idxBase) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSgthrz);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSgthrz);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      nnz,
@@ -508,7 +508,7 @@ cusparseDgthrz(cusparseHandle_t handle,
                double *xVal,
                const int *xInd,
                cusparseIndexBase_t idxBase) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDgthrz);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDgthrz);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      nnz,
@@ -525,7 +525,7 @@ cusparseCgthrz(cusparseHandle_t handle,
                cuComplex *xVal,
                const int *xInd,
                cusparseIndexBase_t idxBase) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCgthrz);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCgthrz);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      nnz,
@@ -542,7 +542,7 @@ cusparseZgthrz(cusparseHandle_t handle,
                cuDoubleComplex *xVal,
                const int *xInd,
                cusparseIndexBase_t idxBase) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZgthrz);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZgthrz);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      nnz,
@@ -559,7 +559,7 @@ cusparseSsctr(cusparseHandle_t handle,
               const int *xInd,
               float *y,
               cusparseIndexBase_t idxBase) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSsctr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSsctr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      nnz,
@@ -576,7 +576,7 @@ cusparseDsctr(cusparseHandle_t handle,
               const int *xInd,
               double *y,
               cusparseIndexBase_t idxBase) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDsctr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDsctr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      nnz,
@@ -593,7 +593,7 @@ cusparseCsctr(cusparseHandle_t handle,
               const int *xInd,
               cuComplex *y,
               cusparseIndexBase_t idxBase) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCsctr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCsctr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      nnz,
@@ -610,7 +610,7 @@ cusparseZsctr(cusparseHandle_t handle,
               const int *xInd,
               cuDoubleComplex *y,
               cusparseIndexBase_t idxBase) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZsctr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZsctr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      nnz,
@@ -629,7 +629,7 @@ cusparseSroti(cusparseHandle_t handle,
               const float *c,
               const float *s,
               cusparseIndexBase_t idxBase) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSroti);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSroti);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      nnz,
@@ -650,7 +650,7 @@ cusparseDroti(cusparseHandle_t handle,
               const double *c,
               const double *s,
               cusparseIndexBase_t idxBase) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDroti);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDroti);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      nnz,
@@ -681,7 +681,7 @@ cusparseSgemvi(cusparseHandle_t handle,
                float *y,
                cusparseIndexBase_t idxBase,
                void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSgemvi);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSgemvi);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      transA,
@@ -706,7 +706,7 @@ cusparseSgemvi_bufferSize(cusparseHandle_t handle,
                           int n,
                           int nnz,
                           int *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSgemvi_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSgemvi_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      transA,
@@ -731,7 +731,7 @@ cusparseDgemvi(cusparseHandle_t handle,
                double *y,
                cusparseIndexBase_t idxBase,
                void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDgemvi);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDgemvi);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      transA,
@@ -756,7 +756,7 @@ cusparseDgemvi_bufferSize(cusparseHandle_t handle,
                           int n,
                           int nnz,
                           int *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDgemvi_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDgemvi_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      transA,
@@ -780,7 +780,7 @@ cusparseCgemvi(cusparseHandle_t handle,
                cuComplex *y,
                cusparseIndexBase_t idxBase,
                void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCgemvi);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCgemvi);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      transA,
@@ -805,7 +805,7 @@ cusparseCgemvi_bufferSize(cusparseHandle_t handle,
                           int n,
                           int nnz,
                           int *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCgemvi_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCgemvi_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      transA,
@@ -830,7 +830,7 @@ cusparseZgemvi(cusparseHandle_t handle,
                cuDoubleComplex *y,
                cusparseIndexBase_t idxBase,
                void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZgemvi);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZgemvi);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      transA,
@@ -855,7 +855,7 @@ cusparseZgemvi_bufferSize(cusparseHandle_t handle,
                           int n,
                           int nnz,
                           int *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZgemvi_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZgemvi_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      transA,
@@ -887,7 +887,7 @@ cusparseCsrmvEx_bufferSize(cusparseHandle_t handle,
                            cudaDataType ytype,
                            cudaDataType executiontype,
                            size_t *bufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCsrmvEx_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCsrmvEx_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      alg,
@@ -934,7 +934,7 @@ cusparseCsrmvEx(cusparseHandle_t handle,
                 cudaDataType ytype,
                 cudaDataType executiontype,
                 void *buffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCsrmvEx);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCsrmvEx);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      alg,
@@ -975,7 +975,7 @@ cusparseSbsrmv(cusparseHandle_t handle,
                const float *x,
                const float *beta,
                float *y) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSbsrmv);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSbsrmv);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -1010,7 +1010,7 @@ cusparseDbsrmv(cusparseHandle_t handle,
                const double *x,
                const double *beta,
                double *y) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDbsrmv);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDbsrmv);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -1045,7 +1045,7 @@ cusparseCbsrmv(cusparseHandle_t handle,
                const cuComplex *x,
                const cuComplex *beta,
                cuComplex *y) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCbsrmv);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCbsrmv);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -1080,7 +1080,7 @@ cusparseZbsrmv(cusparseHandle_t handle,
                const cuDoubleComplex *x,
                const cuDoubleComplex *beta,
                cuDoubleComplex *y) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZbsrmv);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZbsrmv);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -1118,7 +1118,7 @@ cusparseSbsrxmv(cusparseHandle_t handle,
                 const float *x,
                 const float *beta,
                 float *y) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSbsrxmv);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSbsrxmv);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -1159,7 +1159,7 @@ cusparseDbsrxmv(cusparseHandle_t handle,
                 const double *x,
                 const double *beta,
                 double *y) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDbsrxmv);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDbsrxmv);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -1200,7 +1200,7 @@ cusparseCbsrxmv(cusparseHandle_t handle,
                 const cuComplex *x,
                 const cuComplex *beta,
                 cuComplex *y) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCbsrxmv);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCbsrxmv);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -1241,7 +1241,7 @@ cusparseZbsrxmv(cusparseHandle_t handle,
                 const cuDoubleComplex *x,
                 const cuDoubleComplex *beta,
                 cuDoubleComplex *y) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZbsrxmv);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZbsrxmv);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -1267,7 +1267,7 @@ cusparseStatus_t CUSPARSEAPI
 cusparseXcsrsv2_zeroPivot(cusparseHandle_t handle,
                           csrsv2Info_t info,
                           int *position) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseXcsrsv2_zeroPivot);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseXcsrsv2_zeroPivot);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      info,
@@ -1285,7 +1285,7 @@ cusparseScsrsv2_bufferSize(cusparseHandle_t handle,
                            const int *csrSortedColIndA,
                            csrsv2Info_t info,
                            int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScsrsv2_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScsrsv2_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      transA,
@@ -1310,7 +1310,7 @@ cusparseDcsrsv2_bufferSize(cusparseHandle_t handle,
                            const int *csrSortedColIndA,
                            csrsv2Info_t info,
                            int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDcsrsv2_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDcsrsv2_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      transA,
@@ -1335,7 +1335,7 @@ cusparseCcsrsv2_bufferSize(cusparseHandle_t handle,
                            const int *csrSortedColIndA,
                            csrsv2Info_t info,
                            int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCcsrsv2_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCcsrsv2_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      transA,
@@ -1360,7 +1360,7 @@ cusparseZcsrsv2_bufferSize(cusparseHandle_t handle,
                            const int *csrSortedColIndA,
                            csrsv2Info_t info,
                            int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZcsrsv2_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZcsrsv2_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      transA,
@@ -1385,7 +1385,7 @@ cusparseScsrsv2_bufferSizeExt(cusparseHandle_t handle,
                               const int *csrSortedColIndA,
                               csrsv2Info_t info,
                               size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScsrsv2_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScsrsv2_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      transA,
@@ -1410,7 +1410,7 @@ cusparseDcsrsv2_bufferSizeExt(cusparseHandle_t handle,
                               const int *csrSortedColIndA,
                               csrsv2Info_t info,
                               size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDcsrsv2_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDcsrsv2_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      transA,
@@ -1435,7 +1435,7 @@ cusparseCcsrsv2_bufferSizeExt(cusparseHandle_t handle,
                               const int *csrSortedColIndA,
                               csrsv2Info_t info,
                               size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCcsrsv2_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCcsrsv2_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      transA,
@@ -1460,7 +1460,7 @@ cusparseZcsrsv2_bufferSizeExt(cusparseHandle_t handle,
                               const int *csrSortedColIndA,
                               csrsv2Info_t info,
                               size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZcsrsv2_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZcsrsv2_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      transA,
@@ -1486,7 +1486,7 @@ cusparseScsrsv2_analysis(cusparseHandle_t handle,
                          csrsv2Info_t info,
                          cusparseSolvePolicy_t policy,
                          void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScsrsv2_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScsrsv2_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      transA,
@@ -1513,7 +1513,7 @@ cusparseDcsrsv2_analysis(cusparseHandle_t handle,
                          csrsv2Info_t info,
                          cusparseSolvePolicy_t policy,
                          void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDcsrsv2_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDcsrsv2_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      transA,
@@ -1540,7 +1540,7 @@ cusparseCcsrsv2_analysis(cusparseHandle_t handle,
                          csrsv2Info_t info,
                          cusparseSolvePolicy_t policy,
                          void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCcsrsv2_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCcsrsv2_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      transA,
@@ -1567,7 +1567,7 @@ cusparseZcsrsv2_analysis(cusparseHandle_t handle,
                          csrsv2Info_t info,
                          cusparseSolvePolicy_t policy,
                          void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZcsrsv2_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZcsrsv2_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      transA,
@@ -1597,7 +1597,7 @@ cusparseScsrsv2_solve(cusparseHandle_t handle,
                       float *x,
                       cusparseSolvePolicy_t policy,
                       void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScsrsv2_solve);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScsrsv2_solve);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      transA,
@@ -1630,7 +1630,7 @@ cusparseDcsrsv2_solve(cusparseHandle_t handle,
                       double *x,
                       cusparseSolvePolicy_t policy,
                       void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDcsrsv2_solve);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDcsrsv2_solve);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      transA,
@@ -1663,7 +1663,7 @@ cusparseCcsrsv2_solve(cusparseHandle_t handle,
                       cuComplex *x,
                       cusparseSolvePolicy_t policy,
                       void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCcsrsv2_solve);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCcsrsv2_solve);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      transA,
@@ -1696,7 +1696,7 @@ cusparseZcsrsv2_solve(cusparseHandle_t handle,
                       cuDoubleComplex *x,
                       cusparseSolvePolicy_t policy,
                       void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZcsrsv2_solve);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZcsrsv2_solve);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      transA,
@@ -1718,7 +1718,7 @@ cusparseStatus_t CUSPARSEAPI
 cusparseXbsrsv2_zeroPivot(cusparseHandle_t handle,
                           bsrsv2Info_t info,
                           int *position) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseXbsrsv2_zeroPivot);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseXbsrsv2_zeroPivot);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      info,
@@ -1738,7 +1738,7 @@ cusparseSbsrsv2_bufferSize(cusparseHandle_t handle,
                            int blockDim,
                            bsrsv2Info_t info,
                            int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSbsrsv2_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSbsrsv2_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -1767,7 +1767,7 @@ cusparseDbsrsv2_bufferSize(cusparseHandle_t handle,
                            int blockDim,
                            bsrsv2Info_t info,
                            int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDbsrsv2_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDbsrsv2_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -1796,7 +1796,7 @@ cusparseCbsrsv2_bufferSize(cusparseHandle_t handle,
                            int blockDim,
                            bsrsv2Info_t info,
                            int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCbsrsv2_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCbsrsv2_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -1825,7 +1825,7 @@ cusparseZbsrsv2_bufferSize(cusparseHandle_t handle,
                            int blockDim,
                            bsrsv2Info_t info,
                            int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZbsrsv2_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZbsrsv2_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -1854,7 +1854,7 @@ cusparseSbsrsv2_bufferSizeExt(cusparseHandle_t handle,
                               int blockSize,
                               bsrsv2Info_t info,
                               size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSbsrsv2_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSbsrsv2_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -1883,7 +1883,7 @@ cusparseDbsrsv2_bufferSizeExt(cusparseHandle_t handle,
                               int blockSize,
                               bsrsv2Info_t info,
                               size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDbsrsv2_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDbsrsv2_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -1912,7 +1912,7 @@ cusparseCbsrsv2_bufferSizeExt(cusparseHandle_t handle,
                               int blockSize,
                               bsrsv2Info_t info,
                               size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCbsrsv2_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCbsrsv2_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -1941,7 +1941,7 @@ cusparseZbsrsv2_bufferSizeExt(cusparseHandle_t handle,
                               int blockSize,
                               bsrsv2Info_t info,
                               size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZbsrsv2_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZbsrsv2_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -1971,7 +1971,7 @@ cusparseSbsrsv2_analysis(cusparseHandle_t handle,
                          bsrsv2Info_t info,
                          cusparseSolvePolicy_t policy,
                          void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSbsrsv2_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSbsrsv2_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -2002,7 +2002,7 @@ cusparseDbsrsv2_analysis(cusparseHandle_t handle,
                          bsrsv2Info_t info,
                          cusparseSolvePolicy_t policy,
                          void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDbsrsv2_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDbsrsv2_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -2033,7 +2033,7 @@ cusparseCbsrsv2_analysis(cusparseHandle_t handle,
                          bsrsv2Info_t info,
                          cusparseSolvePolicy_t policy,
                          void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCbsrsv2_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCbsrsv2_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -2064,7 +2064,7 @@ cusparseZbsrsv2_analysis(cusparseHandle_t handle,
                          bsrsv2Info_t info,
                          cusparseSolvePolicy_t policy,
                          void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZbsrsv2_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZbsrsv2_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -2098,7 +2098,7 @@ cusparseSbsrsv2_solve(cusparseHandle_t handle,
                       float *x,
                       cusparseSolvePolicy_t policy,
                       void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSbsrsv2_solve);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSbsrsv2_solve);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -2135,7 +2135,7 @@ cusparseDbsrsv2_solve(cusparseHandle_t handle,
                       double *x,
                       cusparseSolvePolicy_t policy,
                       void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDbsrsv2_solve);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDbsrsv2_solve);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -2172,7 +2172,7 @@ cusparseCbsrsv2_solve(cusparseHandle_t handle,
                       cuComplex *x,
                       cusparseSolvePolicy_t policy,
                       void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCbsrsv2_solve);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCbsrsv2_solve);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -2209,7 +2209,7 @@ cusparseZbsrsv2_solve(cusparseHandle_t handle,
                       cuDoubleComplex *x,
                       cusparseSolvePolicy_t policy,
                       void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZbsrsv2_solve);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZbsrsv2_solve);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -2253,7 +2253,7 @@ cusparseSbsrmm(cusparseHandle_t handle,
                const float *beta,
                float *C,
                int ldc) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSbsrmm);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSbsrmm);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -2296,7 +2296,7 @@ cusparseDbsrmm(cusparseHandle_t handle,
                const double *beta,
                double *C,
                int ldc) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDbsrmm);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDbsrmm);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -2339,7 +2339,7 @@ cusparseCbsrmm(cusparseHandle_t handle,
                const cuComplex *beta,
                cuComplex *C,
                int ldc) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCbsrmm);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCbsrmm);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -2382,7 +2382,7 @@ cusparseZbsrmm(cusparseHandle_t handle,
                const cuDoubleComplex *beta,
                cuDoubleComplex *C,
                int ldc) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZbsrmm);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZbsrmm);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -2420,7 +2420,7 @@ cusparseSgemmi(cusparseHandle_t handle,
                const float *beta,
                float *C,
                int ldc) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSgemmi);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSgemmi);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -2453,7 +2453,7 @@ cusparseDgemmi(cusparseHandle_t handle,
                const double *beta,
                double *C,
                int ldc) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDgemmi);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDgemmi);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -2486,7 +2486,7 @@ cusparseCgemmi(cusparseHandle_t handle,
                const cuComplex *beta,
                cuComplex *C,
                int ldc) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCgemmi);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCgemmi);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -2519,7 +2519,7 @@ cusparseZgemmi(cusparseHandle_t handle,
                const cuDoubleComplex *beta,
                cuDoubleComplex *C,
                int ldc) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZgemmi);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZgemmi);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -2539,14 +2539,14 @@ cusparseZgemmi(cusparseHandle_t handle,
 
 cusparseStatus_t CUSPARSEAPI
 cusparseCreateCsrsm2Info(csrsm2Info_t *info) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCreateCsrsm2Info);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCreateCsrsm2Info);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(info);
 }
 
 cusparseStatus_t CUSPARSEAPI
 cusparseDestroyCsrsm2Info(csrsm2Info_t info) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDestroyCsrsm2Info);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDestroyCsrsm2Info);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(info);
 }
@@ -2555,7 +2555,7 @@ cusparseStatus_t CUSPARSEAPI
 cusparseXcsrsm2_zeroPivot(cusparseHandle_t handle,
                           csrsm2Info_t info,
                           int *position) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseXcsrsm2_zeroPivot);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseXcsrsm2_zeroPivot);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      info,
@@ -2580,7 +2580,7 @@ cusparseScsrsm2_bufferSizeExt(cusparseHandle_t handle,
                               csrsm2Info_t info,
                               cusparseSolvePolicy_t policy,
                               size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScsrsm2_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScsrsm2_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      algo,
@@ -2619,7 +2619,7 @@ cusparseDcsrsm2_bufferSizeExt(cusparseHandle_t handle,
                               csrsm2Info_t info,
                               cusparseSolvePolicy_t policy,
                               size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDcsrsm2_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDcsrsm2_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      algo,
@@ -2658,7 +2658,7 @@ cusparseCcsrsm2_bufferSizeExt(cusparseHandle_t handle,
                               csrsm2Info_t info,
                               cusparseSolvePolicy_t policy,
                               size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCcsrsm2_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCcsrsm2_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      algo,
@@ -2697,7 +2697,7 @@ cusparseZcsrsm2_bufferSizeExt(cusparseHandle_t handle,
                               csrsm2Info_t info,
                               cusparseSolvePolicy_t policy,
                               size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZcsrsm2_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZcsrsm2_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      algo,
@@ -2736,7 +2736,7 @@ cusparseScsrsm2_analysis(cusparseHandle_t handle,
                          csrsm2Info_t info,
                          cusparseSolvePolicy_t policy,
                          void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScsrsm2_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScsrsm2_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      algo,
@@ -2775,7 +2775,7 @@ cusparseDcsrsm2_analysis(cusparseHandle_t handle,
                          csrsm2Info_t info,
                          cusparseSolvePolicy_t policy,
                          void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDcsrsm2_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDcsrsm2_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      algo,
@@ -2814,7 +2814,7 @@ cusparseCcsrsm2_analysis(cusparseHandle_t handle,
                          csrsm2Info_t info,
                          cusparseSolvePolicy_t policy,
                          void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCcsrsm2_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCcsrsm2_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      algo,
@@ -2853,7 +2853,7 @@ cusparseZcsrsm2_analysis(cusparseHandle_t handle,
                          csrsm2Info_t info,
                          cusparseSolvePolicy_t policy,
                          void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZcsrsm2_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZcsrsm2_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      algo,
@@ -2892,7 +2892,7 @@ cusparseScsrsm2_solve(cusparseHandle_t handle,
                       csrsm2Info_t info,
                       cusparseSolvePolicy_t policy,
                       void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScsrsm2_solve);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScsrsm2_solve);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      algo,
@@ -2931,7 +2931,7 @@ cusparseDcsrsm2_solve(cusparseHandle_t handle,
                       csrsm2Info_t info,
                       cusparseSolvePolicy_t policy,
                       void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDcsrsm2_solve);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDcsrsm2_solve);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      algo,
@@ -2970,7 +2970,7 @@ cusparseCcsrsm2_solve(cusparseHandle_t handle,
                       csrsm2Info_t info,
                       cusparseSolvePolicy_t policy,
                       void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCcsrsm2_solve);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCcsrsm2_solve);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      algo,
@@ -3009,7 +3009,7 @@ cusparseZcsrsm2_solve(cusparseHandle_t handle,
                       csrsm2Info_t info,
                       cusparseSolvePolicy_t policy,
                       void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZcsrsm2_solve);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZcsrsm2_solve);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      algo,
@@ -3034,7 +3034,7 @@ cusparseStatus_t CUSPARSEAPI
 cusparseXbsrsm2_zeroPivot(cusparseHandle_t handle,
                           bsrsm2Info_t info,
                           int *position) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseXbsrsm2_zeroPivot);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseXbsrsm2_zeroPivot);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      info,
@@ -3056,7 +3056,7 @@ cusparseSbsrsm2_bufferSize(cusparseHandle_t handle,
                            int blockSize,
                            bsrsm2Info_t info,
                            int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSbsrsm2_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSbsrsm2_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -3089,7 +3089,7 @@ cusparseDbsrsm2_bufferSize(cusparseHandle_t handle,
                            int blockSize,
                            bsrsm2Info_t info,
                            int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDbsrsm2_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDbsrsm2_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -3122,7 +3122,7 @@ cusparseCbsrsm2_bufferSize(cusparseHandle_t handle,
                            int blockSize,
                            bsrsm2Info_t info,
                            int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCbsrsm2_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCbsrsm2_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -3155,7 +3155,7 @@ cusparseZbsrsm2_bufferSize(cusparseHandle_t handle,
                            int blockSize,
                            bsrsm2Info_t info,
                            int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZbsrsm2_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZbsrsm2_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -3188,7 +3188,7 @@ cusparseSbsrsm2_bufferSizeExt(cusparseHandle_t handle,
                               int blockSize,
                               bsrsm2Info_t info,
                               size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSbsrsm2_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSbsrsm2_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -3221,7 +3221,7 @@ cusparseDbsrsm2_bufferSizeExt(cusparseHandle_t handle,
                               int blockSize,
                               bsrsm2Info_t info,
                               size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDbsrsm2_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDbsrsm2_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -3254,7 +3254,7 @@ cusparseCbsrsm2_bufferSizeExt(cusparseHandle_t handle,
                               int blockSize,
                               bsrsm2Info_t info,
                               size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCbsrsm2_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCbsrsm2_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -3287,7 +3287,7 @@ cusparseZbsrsm2_bufferSizeExt(cusparseHandle_t handle,
                               int blockSize,
                               bsrsm2Info_t info,
                               size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZbsrsm2_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZbsrsm2_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -3321,7 +3321,7 @@ cusparseSbsrsm2_analysis(cusparseHandle_t handle,
                          bsrsm2Info_t info,
                          cusparseSolvePolicy_t policy,
                          void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSbsrsm2_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSbsrsm2_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -3356,7 +3356,7 @@ cusparseDbsrsm2_analysis(cusparseHandle_t handle,
                          bsrsm2Info_t info,
                          cusparseSolvePolicy_t policy,
                          void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDbsrsm2_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDbsrsm2_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -3391,7 +3391,7 @@ cusparseCbsrsm2_analysis(cusparseHandle_t handle,
                          bsrsm2Info_t info,
                          cusparseSolvePolicy_t policy,
                          void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCbsrsm2_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCbsrsm2_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -3426,7 +3426,7 @@ cusparseZbsrsm2_analysis(cusparseHandle_t handle,
                          bsrsm2Info_t info,
                          cusparseSolvePolicy_t policy,
                          void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZbsrsm2_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZbsrsm2_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -3466,7 +3466,7 @@ cusparseSbsrsm2_solve(cusparseHandle_t handle,
                       int ldx,
                       cusparseSolvePolicy_t policy,
                       void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSbsrsm2_solve);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSbsrsm2_solve);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -3511,7 +3511,7 @@ cusparseDbsrsm2_solve(cusparseHandle_t handle,
                       int ldx,
                       cusparseSolvePolicy_t policy,
                       void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDbsrsm2_solve);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDbsrsm2_solve);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -3556,7 +3556,7 @@ cusparseCbsrsm2_solve(cusparseHandle_t handle,
                       int ldx,
                       cusparseSolvePolicy_t policy,
                       void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCbsrsm2_solve);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCbsrsm2_solve);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -3601,7 +3601,7 @@ cusparseZbsrsm2_solve(cusparseHandle_t handle,
                       int ldx,
                       cusparseSolvePolicy_t policy,
                       void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZbsrsm2_solve);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZbsrsm2_solve);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -3635,7 +3635,7 @@ cusparseScsrilu02_numericBoost(cusparseHandle_t handle,
                                int enable_boost,
                                double *tol,
                                float *boost_val) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScsrilu02_numericBoost);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScsrilu02_numericBoost);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      info,
@@ -3650,7 +3650,7 @@ cusparseDcsrilu02_numericBoost(cusparseHandle_t handle,
                                int enable_boost,
                                double *tol,
                                double *boost_val) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDcsrilu02_numericBoost);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDcsrilu02_numericBoost);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      info,
@@ -3665,7 +3665,7 @@ cusparseCcsrilu02_numericBoost(cusparseHandle_t handle,
                                int enable_boost,
                                double *tol,
                                cuComplex *boost_val) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCcsrilu02_numericBoost);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCcsrilu02_numericBoost);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      info,
@@ -3680,7 +3680,7 @@ cusparseZcsrilu02_numericBoost(cusparseHandle_t handle,
                                int enable_boost,
                                double *tol,
                                cuDoubleComplex *boost_val) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZcsrilu02_numericBoost);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZcsrilu02_numericBoost);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      info,
@@ -3693,7 +3693,7 @@ cusparseStatus_t CUSPARSEAPI
 cusparseXcsrilu02_zeroPivot(cusparseHandle_t handle,
                             csrilu02Info_t info,
                             int *position) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseXcsrilu02_zeroPivot);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseXcsrilu02_zeroPivot);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      info,
@@ -3710,7 +3710,7 @@ cusparseScsrilu02_bufferSize(cusparseHandle_t handle,
                              const int *csrSortedColIndA,
                              csrilu02Info_t info,
                              int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScsrilu02_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScsrilu02_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -3733,7 +3733,7 @@ cusparseDcsrilu02_bufferSize(cusparseHandle_t handle,
                              const int *csrSortedColIndA,
                              csrilu02Info_t info,
                              int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDcsrilu02_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDcsrilu02_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -3756,7 +3756,7 @@ cusparseCcsrilu02_bufferSize(cusparseHandle_t handle,
                              const int *csrSortedColIndA,
                              csrilu02Info_t info,
                              int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCcsrilu02_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCcsrilu02_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -3779,7 +3779,7 @@ cusparseZcsrilu02_bufferSize(cusparseHandle_t handle,
                              const int *csrSortedColIndA,
                              csrilu02Info_t info,
                              int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZcsrilu02_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZcsrilu02_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -3802,7 +3802,7 @@ cusparseScsrilu02_bufferSizeExt(cusparseHandle_t handle,
                                 const int *csrSortedColInd,
                                 csrilu02Info_t info,
                                 size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScsrilu02_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScsrilu02_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -3825,7 +3825,7 @@ cusparseDcsrilu02_bufferSizeExt(cusparseHandle_t handle,
                                 const int *csrSortedColInd,
                                 csrilu02Info_t info,
                                 size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDcsrilu02_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDcsrilu02_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -3848,7 +3848,7 @@ cusparseCcsrilu02_bufferSizeExt(cusparseHandle_t handle,
                                 const int *csrSortedColInd,
                                 csrilu02Info_t info,
                                 size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCcsrilu02_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCcsrilu02_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -3871,7 +3871,7 @@ cusparseZcsrilu02_bufferSizeExt(cusparseHandle_t handle,
                                 const int *csrSortedColInd,
                                 csrilu02Info_t info,
                                 size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZcsrilu02_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZcsrilu02_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -3895,7 +3895,7 @@ cusparseScsrilu02_analysis(cusparseHandle_t handle,
                            csrilu02Info_t info,
                            cusparseSolvePolicy_t policy,
                            void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScsrilu02_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScsrilu02_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -3920,7 +3920,7 @@ cusparseDcsrilu02_analysis(cusparseHandle_t handle,
                            csrilu02Info_t info,
                            cusparseSolvePolicy_t policy,
                            void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDcsrilu02_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDcsrilu02_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -3945,7 +3945,7 @@ cusparseCcsrilu02_analysis(cusparseHandle_t handle,
                            csrilu02Info_t info,
                            cusparseSolvePolicy_t policy,
                            void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCcsrilu02_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCcsrilu02_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -3970,7 +3970,7 @@ cusparseZcsrilu02_analysis(cusparseHandle_t handle,
                            csrilu02Info_t info,
                            cusparseSolvePolicy_t policy,
                            void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZcsrilu02_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZcsrilu02_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -3995,7 +3995,7 @@ cusparseScsrilu02(cusparseHandle_t handle,
                   csrilu02Info_t info,
                   cusparseSolvePolicy_t policy,
                   void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScsrilu02);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScsrilu02);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -4020,7 +4020,7 @@ cusparseDcsrilu02(cusparseHandle_t handle,
                   csrilu02Info_t info,
                   cusparseSolvePolicy_t policy,
                   void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDcsrilu02);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDcsrilu02);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -4045,7 +4045,7 @@ cusparseCcsrilu02(cusparseHandle_t handle,
                   csrilu02Info_t info,
                   cusparseSolvePolicy_t policy,
                   void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCcsrilu02);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCcsrilu02);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -4070,7 +4070,7 @@ cusparseZcsrilu02(cusparseHandle_t handle,
                   csrilu02Info_t info,
                   cusparseSolvePolicy_t policy,
                   void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZcsrilu02);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZcsrilu02);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -4090,7 +4090,7 @@ cusparseSbsrilu02_numericBoost(cusparseHandle_t handle,
                                int enable_boost,
                                double *tol,
                                float *boost_val) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSbsrilu02_numericBoost);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSbsrilu02_numericBoost);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      info,
@@ -4105,7 +4105,7 @@ cusparseDbsrilu02_numericBoost(cusparseHandle_t handle,
                                int enable_boost,
                                double *tol,
                                double *boost_val) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDbsrilu02_numericBoost);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDbsrilu02_numericBoost);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      info,
@@ -4120,7 +4120,7 @@ cusparseCbsrilu02_numericBoost(cusparseHandle_t handle,
                                int enable_boost,
                                double *tol,
                                cuComplex *boost_val) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCbsrilu02_numericBoost);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCbsrilu02_numericBoost);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      info,
@@ -4135,7 +4135,7 @@ cusparseZbsrilu02_numericBoost(cusparseHandle_t handle,
                                int enable_boost,
                                double *tol,
                                cuDoubleComplex *boost_val) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZbsrilu02_numericBoost);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZbsrilu02_numericBoost);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      info,
@@ -4148,7 +4148,7 @@ cusparseStatus_t CUSPARSEAPI
 cusparseXbsrilu02_zeroPivot(cusparseHandle_t handle,
                             bsrilu02Info_t info,
                             int *position) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseXbsrilu02_zeroPivot);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseXbsrilu02_zeroPivot);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      info,
@@ -4167,7 +4167,7 @@ cusparseSbsrilu02_bufferSize(cusparseHandle_t handle,
                              int blockDim,
                              bsrilu02Info_t info,
                              int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSbsrilu02_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSbsrilu02_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -4194,7 +4194,7 @@ cusparseDbsrilu02_bufferSize(cusparseHandle_t handle,
                              int blockDim,
                              bsrilu02Info_t info,
                              int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDbsrilu02_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDbsrilu02_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -4221,7 +4221,7 @@ cusparseCbsrilu02_bufferSize(cusparseHandle_t handle,
                              int blockDim,
                              bsrilu02Info_t info,
                              int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCbsrilu02_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCbsrilu02_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -4248,7 +4248,7 @@ cusparseZbsrilu02_bufferSize(cusparseHandle_t handle,
                              int blockDim,
                              bsrilu02Info_t info,
                              int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZbsrilu02_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZbsrilu02_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -4275,7 +4275,7 @@ cusparseSbsrilu02_bufferSizeExt(cusparseHandle_t handle,
                                 int blockSize,
                                 bsrilu02Info_t info,
                                 size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSbsrilu02_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSbsrilu02_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -4302,7 +4302,7 @@ cusparseDbsrilu02_bufferSizeExt(cusparseHandle_t handle,
                                 int blockSize,
                                 bsrilu02Info_t info,
                                 size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDbsrilu02_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDbsrilu02_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -4329,7 +4329,7 @@ cusparseCbsrilu02_bufferSizeExt(cusparseHandle_t handle,
                                 int blockSize,
                                 bsrilu02Info_t info,
                                 size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCbsrilu02_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCbsrilu02_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -4356,7 +4356,7 @@ cusparseZbsrilu02_bufferSizeExt(cusparseHandle_t handle,
                                 int blockSize,
                                 bsrilu02Info_t info,
                                 size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZbsrilu02_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZbsrilu02_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -4384,7 +4384,7 @@ cusparseSbsrilu02_analysis(cusparseHandle_t handle,
                            bsrilu02Info_t info,
                            cusparseSolvePolicy_t policy,
                            void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSbsrilu02_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSbsrilu02_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -4413,7 +4413,7 @@ cusparseDbsrilu02_analysis(cusparseHandle_t handle,
                            bsrilu02Info_t info,
                            cusparseSolvePolicy_t policy,
                            void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDbsrilu02_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDbsrilu02_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -4442,7 +4442,7 @@ cusparseCbsrilu02_analysis(cusparseHandle_t handle,
                            bsrilu02Info_t info,
                            cusparseSolvePolicy_t policy,
                            void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCbsrilu02_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCbsrilu02_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -4471,7 +4471,7 @@ cusparseZbsrilu02_analysis(cusparseHandle_t handle,
                            bsrilu02Info_t info,
                            cusparseSolvePolicy_t policy,
                            void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZbsrilu02_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZbsrilu02_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -4500,7 +4500,7 @@ cusparseSbsrilu02(cusparseHandle_t handle,
                   bsrilu02Info_t info,
                   cusparseSolvePolicy_t policy,
                   void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSbsrilu02);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSbsrilu02);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -4529,7 +4529,7 @@ cusparseDbsrilu02(cusparseHandle_t handle,
                   bsrilu02Info_t info,
                   cusparseSolvePolicy_t policy,
                   void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDbsrilu02);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDbsrilu02);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -4558,7 +4558,7 @@ cusparseCbsrilu02(cusparseHandle_t handle,
                   bsrilu02Info_t info,
                   cusparseSolvePolicy_t policy,
                   void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCbsrilu02);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCbsrilu02);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -4587,7 +4587,7 @@ cusparseZbsrilu02(cusparseHandle_t handle,
                   bsrilu02Info_t info,
                   cusparseSolvePolicy_t policy,
                   void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZbsrilu02);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZbsrilu02);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -4607,7 +4607,7 @@ cusparseStatus_t CUSPARSEAPI
 cusparseXcsric02_zeroPivot(cusparseHandle_t handle,
                            csric02Info_t info,
                            int *position) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseXcsric02_zeroPivot);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseXcsric02_zeroPivot);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      info,
@@ -4624,7 +4624,7 @@ cusparseScsric02_bufferSize(cusparseHandle_t handle,
                             const int *csrSortedColIndA,
                             csric02Info_t info,
                             int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScsric02_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScsric02_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -4647,7 +4647,7 @@ cusparseDcsric02_bufferSize(cusparseHandle_t handle,
                             const int *csrSortedColIndA,
                             csric02Info_t info,
                             int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDcsric02_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDcsric02_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -4670,7 +4670,7 @@ cusparseCcsric02_bufferSize(cusparseHandle_t handle,
                             const int *csrSortedColIndA,
                             csric02Info_t info,
                             int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCcsric02_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCcsric02_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -4693,7 +4693,7 @@ cusparseZcsric02_bufferSize(cusparseHandle_t handle,
                             const int *csrSortedColIndA,
                             csric02Info_t info,
                             int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZcsric02_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZcsric02_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -4716,7 +4716,7 @@ cusparseScsric02_bufferSizeExt(cusparseHandle_t handle,
                                const int *csrSortedColInd,
                                csric02Info_t info,
                                size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScsric02_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScsric02_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -4739,7 +4739,7 @@ cusparseDcsric02_bufferSizeExt(cusparseHandle_t handle,
                                const int *csrSortedColInd,
                                csric02Info_t info,
                                size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDcsric02_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDcsric02_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -4762,7 +4762,7 @@ cusparseCcsric02_bufferSizeExt(cusparseHandle_t handle,
                                const int *csrSortedColInd,
                                csric02Info_t info,
                                size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCcsric02_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCcsric02_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -4785,7 +4785,7 @@ cusparseZcsric02_bufferSizeExt(cusparseHandle_t handle,
                                const int *csrSortedColInd,
                                csric02Info_t info,
                                size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZcsric02_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZcsric02_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -4809,7 +4809,7 @@ cusparseScsric02_analysis(cusparseHandle_t handle,
                           csric02Info_t info,
                           cusparseSolvePolicy_t policy,
                           void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScsric02_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScsric02_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -4834,7 +4834,7 @@ cusparseDcsric02_analysis(cusparseHandle_t handle,
                           csric02Info_t info,
                           cusparseSolvePolicy_t policy,
                           void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDcsric02_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDcsric02_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -4859,7 +4859,7 @@ cusparseCcsric02_analysis(cusparseHandle_t handle,
                           csric02Info_t info,
                           cusparseSolvePolicy_t policy,
                           void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCcsric02_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCcsric02_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -4884,7 +4884,7 @@ cusparseZcsric02_analysis(cusparseHandle_t handle,
                           csric02Info_t info,
                           cusparseSolvePolicy_t policy,
                           void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZcsric02_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZcsric02_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -4909,7 +4909,7 @@ cusparseScsric02(cusparseHandle_t handle,
                  csric02Info_t info,
                  cusparseSolvePolicy_t policy,
                  void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScsric02);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScsric02);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -4934,7 +4934,7 @@ cusparseDcsric02(cusparseHandle_t handle,
                  csric02Info_t info,
                  cusparseSolvePolicy_t policy,
                  void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDcsric02);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDcsric02);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -4959,7 +4959,7 @@ cusparseCcsric02(cusparseHandle_t handle,
                  csric02Info_t info,
                  cusparseSolvePolicy_t policy,
                  void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCcsric02);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCcsric02);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -4984,7 +4984,7 @@ cusparseZcsric02(cusparseHandle_t handle,
                  csric02Info_t info,
                  cusparseSolvePolicy_t policy,
                  void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZcsric02);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZcsric02);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -5002,7 +5002,7 @@ cusparseStatus_t CUSPARSEAPI
 cusparseXbsric02_zeroPivot(cusparseHandle_t handle,
                            bsric02Info_t info,
                            int *position) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseXbsric02_zeroPivot);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseXbsric02_zeroPivot);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      info,
@@ -5021,7 +5021,7 @@ cusparseSbsric02_bufferSize(cusparseHandle_t handle,
                             int blockDim,
                             bsric02Info_t info,
                             int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSbsric02_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSbsric02_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -5048,7 +5048,7 @@ cusparseDbsric02_bufferSize(cusparseHandle_t handle,
                             int blockDim,
                             bsric02Info_t info,
                             int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDbsric02_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDbsric02_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -5075,7 +5075,7 @@ cusparseCbsric02_bufferSize(cusparseHandle_t handle,
                             int blockDim,
                             bsric02Info_t info,
                             int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCbsric02_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCbsric02_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -5102,7 +5102,7 @@ cusparseZbsric02_bufferSize(cusparseHandle_t handle,
                             int blockDim,
                             bsric02Info_t info,
                             int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZbsric02_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZbsric02_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -5129,7 +5129,7 @@ cusparseSbsric02_bufferSizeExt(cusparseHandle_t handle,
                                int blockSize,
                                bsric02Info_t info,
                                size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSbsric02_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSbsric02_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -5156,7 +5156,7 @@ cusparseDbsric02_bufferSizeExt(cusparseHandle_t handle,
                                int blockSize,
                                bsric02Info_t info,
                                size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDbsric02_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDbsric02_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -5183,7 +5183,7 @@ cusparseCbsric02_bufferSizeExt(cusparseHandle_t handle,
                                int blockSize,
                                bsric02Info_t info,
                                size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCbsric02_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCbsric02_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -5210,7 +5210,7 @@ cusparseZbsric02_bufferSizeExt(cusparseHandle_t handle,
                                int blockSize,
                                bsric02Info_t info,
                                size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZbsric02_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZbsric02_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -5238,7 +5238,7 @@ cusparseSbsric02_analysis(cusparseHandle_t handle,
                           bsric02Info_t info,
                           cusparseSolvePolicy_t policy,
                           void *pInputBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSbsric02_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSbsric02_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -5267,7 +5267,7 @@ cusparseDbsric02_analysis(cusparseHandle_t handle,
                           bsric02Info_t info,
                           cusparseSolvePolicy_t policy,
                           void *pInputBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDbsric02_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDbsric02_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -5296,7 +5296,7 @@ cusparseCbsric02_analysis(cusparseHandle_t handle,
                           bsric02Info_t info,
                           cusparseSolvePolicy_t policy,
                           void *pInputBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCbsric02_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCbsric02_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -5325,7 +5325,7 @@ cusparseZbsric02_analysis(cusparseHandle_t handle,
                           bsric02Info_t info,
                           cusparseSolvePolicy_t policy,
                           void *pInputBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZbsric02_analysis);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZbsric02_analysis);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -5354,7 +5354,7 @@ cusparseSbsric02(cusparseHandle_t handle,
                  bsric02Info_t info,
                  cusparseSolvePolicy_t policy,
                  void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSbsric02);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSbsric02);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -5383,7 +5383,7 @@ cusparseDbsric02(cusparseHandle_t handle,
                  bsric02Info_t info,
                  cusparseSolvePolicy_t policy,
                  void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDbsric02);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDbsric02);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -5413,7 +5413,7 @@ cusparseCbsric02(cusparseHandle_t handle,
                  bsric02Info_t info,
                  cusparseSolvePolicy_t policy,
                  void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCbsric02);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCbsric02);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -5442,7 +5442,7 @@ cusparseZbsric02(cusparseHandle_t handle,
                  bsric02Info_t info,
                  cusparseSolvePolicy_t policy,
                  void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZbsric02);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZbsric02);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -5468,7 +5468,7 @@ cusparseSgtsv2_bufferSizeExt(cusparseHandle_t handle,
                              const float *B,
                              int ldb,
                              size_t *bufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSgtsv2_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSgtsv2_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -5491,7 +5491,7 @@ cusparseDgtsv2_bufferSizeExt(cusparseHandle_t handle,
                              const double *B,
                              int ldb,
                              size_t *bufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDgtsv2_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDgtsv2_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -5514,7 +5514,7 @@ cusparseCgtsv2_bufferSizeExt(cusparseHandle_t handle,
                              const cuComplex *B,
                              int ldb,
                              size_t *bufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCgtsv2_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCgtsv2_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -5537,7 +5537,7 @@ cusparseZgtsv2_bufferSizeExt(cusparseHandle_t handle,
                              const cuDoubleComplex *B,
                              int ldb,
                              size_t *bufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZgtsv2_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZgtsv2_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -5560,7 +5560,7 @@ cusparseSgtsv2(cusparseHandle_t handle,
                float *B,
                int ldb,
                void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSgtsv2);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSgtsv2);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -5583,7 +5583,7 @@ cusparseDgtsv2(cusparseHandle_t handle,
                double *B,
                int ldb,
                void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDgtsv2);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDgtsv2);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -5606,7 +5606,7 @@ cusparseCgtsv2(cusparseHandle_t handle,
                cuComplex *B,
                int ldb,
                void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCgtsv2);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCgtsv2);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -5629,7 +5629,7 @@ cusparseZgtsv2(cusparseHandle_t handle,
                cuDoubleComplex *B,
                int ldb,
                void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZgtsv2);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZgtsv2);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -5652,7 +5652,7 @@ cusparseSgtsv2_nopivot_bufferSizeExt(cusparseHandle_t handle,
                                      const float *B,
                                      int ldb,
                                      size_t *bufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSgtsv2_nopivot_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSgtsv2_nopivot_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -5675,7 +5675,7 @@ cusparseDgtsv2_nopivot_bufferSizeExt(cusparseHandle_t handle,
                                      const double *B,
                                      int ldb,
                                      size_t *bufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDgtsv2_nopivot_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDgtsv2_nopivot_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -5698,7 +5698,7 @@ cusparseCgtsv2_nopivot_bufferSizeExt(cusparseHandle_t handle,
                                      const cuComplex *B,
                                      int ldb,
                                      size_t *bufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCgtsv2_nopivot_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCgtsv2_nopivot_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -5721,7 +5721,7 @@ cusparseZgtsv2_nopivot_bufferSizeExt(cusparseHandle_t handle,
                                      const cuDoubleComplex *B,
                                      int ldb,
                                      size_t *bufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZgtsv2_nopivot_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZgtsv2_nopivot_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -5744,7 +5744,7 @@ cusparseSgtsv2_nopivot(cusparseHandle_t handle,
                        float *B,
                        int ldb,
                        void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSgtsv2_nopivot);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSgtsv2_nopivot);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -5767,7 +5767,7 @@ cusparseDgtsv2_nopivot(cusparseHandle_t handle,
                        double *B,
                        int ldb,
                        void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDgtsv2_nopivot);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDgtsv2_nopivot);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -5790,7 +5790,7 @@ cusparseCgtsv2_nopivot(cusparseHandle_t handle,
                        cuComplex *B,
                        int ldb,
                        void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCgtsv2_nopivot);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCgtsv2_nopivot);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -5813,7 +5813,7 @@ cusparseZgtsv2_nopivot(cusparseHandle_t handle,
                        cuDoubleComplex *B,
                        int ldb,
                        void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZgtsv2_nopivot);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZgtsv2_nopivot);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -5836,7 +5836,7 @@ cusparseSgtsv2StridedBatch_bufferSizeExt(cusparseHandle_t handle,
                                          int batchCount,
                                          int batchStride,
                                          size_t *bufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSgtsv2StridedBatch_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSgtsv2StridedBatch_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -5859,7 +5859,7 @@ cusparseDgtsv2StridedBatch_bufferSizeExt(cusparseHandle_t handle,
                                          int batchCount,
                                          int batchStride,
                                          size_t *bufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDgtsv2StridedBatch_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDgtsv2StridedBatch_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -5882,7 +5882,7 @@ cusparseCgtsv2StridedBatch_bufferSizeExt(cusparseHandle_t handle,
                                          int batchCount,
                                          int batchStride,
                                          size_t *bufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCgtsv2StridedBatch_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCgtsv2StridedBatch_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -5905,7 +5905,7 @@ cusparseZgtsv2StridedBatch_bufferSizeExt(cusparseHandle_t handle,
                                          int batchCount,
                                          int batchStride,
                                          size_t *bufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZgtsv2StridedBatch_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZgtsv2StridedBatch_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -5928,7 +5928,7 @@ cusparseSgtsv2StridedBatch(cusparseHandle_t handle,
                            int batchCount,
                            int batchStride,
                            void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSgtsv2StridedBatch);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSgtsv2StridedBatch);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -5951,7 +5951,7 @@ cusparseDgtsv2StridedBatch(cusparseHandle_t handle,
                            int batchCount,
                            int batchStride,
                            void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDgtsv2StridedBatch);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDgtsv2StridedBatch);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -5974,7 +5974,7 @@ cusparseCgtsv2StridedBatch(cusparseHandle_t handle,
                            int batchCount,
                            int batchStride,
                            void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCgtsv2StridedBatch);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCgtsv2StridedBatch);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -5997,7 +5997,7 @@ cusparseZgtsv2StridedBatch(cusparseHandle_t handle,
                            int batchCount,
                            int batchStride,
                            void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZgtsv2StridedBatch);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZgtsv2StridedBatch);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -6020,7 +6020,7 @@ cusparseSgtsvInterleavedBatch_bufferSizeExt(cusparseHandle_t handle,
                                             const float *x,
                                             int batchCount,
                                             size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSgtsvInterleavedBatch_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSgtsvInterleavedBatch_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      algo,
@@ -6043,7 +6043,7 @@ cusparseDgtsvInterleavedBatch_bufferSizeExt(cusparseHandle_t handle,
                                             const double *x,
                                             int batchCount,
                                             size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDgtsvInterleavedBatch_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDgtsvInterleavedBatch_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      algo,
@@ -6066,7 +6066,7 @@ cusparseCgtsvInterleavedBatch_bufferSizeExt(cusparseHandle_t handle,
                                             const cuComplex *x,
                                             int batchCount,
                                             size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCgtsvInterleavedBatch_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCgtsvInterleavedBatch_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      algo,
@@ -6089,7 +6089,7 @@ cusparseZgtsvInterleavedBatch_bufferSizeExt(cusparseHandle_t handle,
                                             const cuDoubleComplex *x,
                                             int batchCount,
                                             size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZgtsvInterleavedBatch_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZgtsvInterleavedBatch_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      algo,
@@ -6112,7 +6112,7 @@ cusparseSgtsvInterleavedBatch(cusparseHandle_t handle,
                               float *x,
                               int batchCount,
                               void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSgtsvInterleavedBatch);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSgtsvInterleavedBatch);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      algo,
@@ -6135,7 +6135,7 @@ cusparseDgtsvInterleavedBatch(cusparseHandle_t handle,
                               double *x,
                               int batchCount,
                               void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDgtsvInterleavedBatch);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDgtsvInterleavedBatch);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      algo,
@@ -6158,7 +6158,7 @@ cusparseCgtsvInterleavedBatch(cusparseHandle_t handle,
                               cuComplex *x,
                               int batchCount,
                               void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCgtsvInterleavedBatch);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCgtsvInterleavedBatch);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      algo,
@@ -6181,7 +6181,7 @@ cusparseZgtsvInterleavedBatch(cusparseHandle_t handle,
                               cuDoubleComplex *x,
                               int batchCount,
                               void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZgtsvInterleavedBatch);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZgtsvInterleavedBatch);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      algo,
@@ -6206,7 +6206,7 @@ cusparseSgpsvInterleavedBatch_bufferSizeExt(cusparseHandle_t handle,
                                             const float *x,
                                             int batchCount,
                                             size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSgpsvInterleavedBatch_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSgpsvInterleavedBatch_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      algo,
@@ -6233,7 +6233,7 @@ cusparseDgpsvInterleavedBatch_bufferSizeExt(cusparseHandle_t handle,
                                             const double *x,
                                             int batchCount,
                                             size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDgpsvInterleavedBatch_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDgpsvInterleavedBatch_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      algo,
@@ -6260,7 +6260,7 @@ cusparseCgpsvInterleavedBatch_bufferSizeExt(cusparseHandle_t handle,
                                             const cuComplex *x,
                                             int batchCount,
                                             size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCgpsvInterleavedBatch_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCgpsvInterleavedBatch_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      algo,
@@ -6287,7 +6287,7 @@ cusparseZgpsvInterleavedBatch_bufferSizeExt(cusparseHandle_t handle,
                                             const cuDoubleComplex *x,
                                             int batchCount,
                                             size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZgpsvInterleavedBatch_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZgpsvInterleavedBatch_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      algo,
@@ -6314,7 +6314,7 @@ cusparseSgpsvInterleavedBatch(cusparseHandle_t handle,
                               float *x,
                               int batchCount,
                               void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSgpsvInterleavedBatch);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSgpsvInterleavedBatch);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      algo,
@@ -6341,7 +6341,7 @@ cusparseDgpsvInterleavedBatch(cusparseHandle_t handle,
                               double *x,
                               int batchCount,
                               void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDgpsvInterleavedBatch);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDgpsvInterleavedBatch);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      algo,
@@ -6368,7 +6368,7 @@ cusparseCgpsvInterleavedBatch(cusparseHandle_t handle,
                               cuComplex *x,
                               int batchCount,
                               void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCgpsvInterleavedBatch);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCgpsvInterleavedBatch);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      algo,
@@ -6395,7 +6395,7 @@ cusparseZgpsvInterleavedBatch(cusparseHandle_t handle,
                               cuDoubleComplex *x,
                               int batchCount,
                               void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZgpsvInterleavedBatch);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZgpsvInterleavedBatch);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      algo,
@@ -6416,14 +6416,14 @@ cusparseZgpsvInterleavedBatch(cusparseHandle_t handle,
 
 cusparseStatus_t CUSPARSEAPI
 cusparseCreateCsrgemm2Info(csrgemm2Info_t *info) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCreateCsrgemm2Info);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCreateCsrgemm2Info);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(info);
 }
 
 cusparseStatus_t CUSPARSEAPI
 cusparseDestroyCsrgemm2Info(csrgemm2Info_t info) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDestroyCsrgemm2Info);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDestroyCsrgemm2Info);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(info);
 }
@@ -6449,7 +6449,7 @@ cusparseScsrgemm2_bufferSizeExt(cusparseHandle_t handle,
                                 const int *csrSortedColIndD,
                                 csrgemm2Info_t info,
                                 size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScsrgemm2_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScsrgemm2_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -6494,7 +6494,7 @@ cusparseDcsrgemm2_bufferSizeExt(cusparseHandle_t handle,
                                 const int *csrSortedColIndD,
                                 csrgemm2Info_t info,
                                 size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDcsrgemm2_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDcsrgemm2_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -6539,7 +6539,7 @@ cusparseCcsrgemm2_bufferSizeExt(cusparseHandle_t handle,
                                 const int *csrSortedColIndD,
                                 csrgemm2Info_t info,
                                 size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCcsrgemm2_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCcsrgemm2_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -6584,7 +6584,7 @@ cusparseZcsrgemm2_bufferSizeExt(cusparseHandle_t handle,
                                 const int *csrSortedColIndD,
                                 csrgemm2Info_t info,
                                 size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZcsrgemm2_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZcsrgemm2_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -6630,7 +6630,7 @@ cusparseXcsrgemm2Nnz(cusparseHandle_t handle,
                      int *nnzTotalDevHostPtr,
                      const csrgemm2Info_t info,
                      void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseXcsrgemm2Nnz);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseXcsrgemm2Nnz);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -6683,7 +6683,7 @@ cusparseScsrgemm2(cusparseHandle_t handle,
                   int *csrSortedColIndC,
                   const csrgemm2Info_t info,
                   void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScsrgemm2);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScsrgemm2);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -6742,7 +6742,7 @@ cusparseDcsrgemm2(cusparseHandle_t handle,
                   int *csrSortedColIndC,
                   const csrgemm2Info_t info,
                   void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDcsrgemm2);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDcsrgemm2);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -6801,7 +6801,7 @@ cusparseCcsrgemm2(cusparseHandle_t handle,
                   int *csrSortedColIndC,
                   const csrgemm2Info_t info,
                   void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCcsrgemm2);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCcsrgemm2);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -6860,7 +6860,7 @@ cusparseZcsrgemm2(cusparseHandle_t handle,
                   int *csrSortedColIndC,
                   const csrgemm2Info_t info,
                   void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZcsrgemm2);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZcsrgemm2);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -6912,7 +6912,7 @@ cusparseScsrgeam2_bufferSizeExt(cusparseHandle_t handle,
                                 const int *csrSortedRowPtrC,
                                 const int *csrSortedColIndC,
                                 size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScsrgeam2_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScsrgeam2_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -6979,7 +6979,7 @@ cusparseCcsrgeam2_bufferSizeExt(cusparseHandle_t handle,
                                 const int *csrSortedRowPtrC,
                                 const int *csrSortedColIndC,
                                 size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCcsrgeam2_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCcsrgeam2_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -7024,7 +7024,7 @@ cusparseZcsrgeam2_bufferSizeExt(cusparseHandle_t handle,
                                 const int *csrSortedRowPtrC,
                                 const int *csrSortedColIndC,
                                 size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZcsrgeam2_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZcsrgeam2_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -7064,7 +7064,7 @@ cusparseXcsrgeam2Nnz(cusparseHandle_t handle,
                      int *csrSortedRowPtrC,
                      int *nnzTotalDevHostPtr,
                      void *workspace) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseXcsrgeam2Nnz);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseXcsrgeam2Nnz);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -7104,7 +7104,7 @@ cusparseScsrgeam2(cusparseHandle_t handle,
                   int *csrSortedRowPtrC,
                   int *csrSortedColIndC,
                   void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScsrgeam2);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScsrgeam2);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -7149,7 +7149,7 @@ cusparseDcsrgeam2(cusparseHandle_t handle,
                   int *csrSortedRowPtrC,
                   int *csrSortedColIndC,
                   void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDcsrgeam2);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDcsrgeam2);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -7194,7 +7194,7 @@ cusparseCcsrgeam2(cusparseHandle_t handle,
                   int *csrSortedRowPtrC,
                   int *csrSortedColIndC,
                   void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCcsrgeam2);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCcsrgeam2);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -7239,7 +7239,7 @@ cusparseZcsrgeam2(cusparseHandle_t handle,
                   int *csrSortedRowPtrC,
                   int *csrSortedColIndC,
                   void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZcsrgeam2);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZcsrgeam2);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -7280,7 +7280,7 @@ cusparseScsrcolor(cusparseHandle_t handle,
                   int *coloring,
                   int *reordering,
                   const cusparseColorInfo_t info) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScsrcolor);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScsrcolor);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -7309,7 +7309,7 @@ cusparseDcsrcolor(cusparseHandle_t handle,
                   int *coloring,
                   int *reordering,
                   const cusparseColorInfo_t info) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDcsrcolor);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDcsrcolor);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -7338,7 +7338,7 @@ cusparseCcsrcolor(cusparseHandle_t handle,
                   int *coloring,
                   int *reordering,
                   const cusparseColorInfo_t info) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCcsrcolor);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCcsrcolor);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -7367,7 +7367,7 @@ cusparseZcsrcolor(cusparseHandle_t handle,
                   int *coloring,
                   int *reordering,
                   const cusparseColorInfo_t info) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZcsrcolor);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZcsrcolor);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -7397,7 +7397,7 @@ cusparseSnnz(cusparseHandle_t handle,
              int lda,
              int *nnzPerRowCol,
              int *nnzTotalDevHostPtr) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSnnz);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSnnz);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -7420,7 +7420,7 @@ cusparseDnnz(cusparseHandle_t handle,
              int lda,
              int *nnzPerRowCol,
              int *nnzTotalDevHostPtr) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDnnz);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDnnz);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -7443,7 +7443,7 @@ cusparseCnnz(cusparseHandle_t handle,
              int lda,
              int *nnzPerRowCol,
              int *nnzTotalDevHostPtr) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCnnz);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCnnz);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -7466,7 +7466,7 @@ cusparseZnnz(cusparseHandle_t handle,
              int lda,
              int *nnzPerRowCol,
              int *nnzTotalDevHostPtr) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZnnz);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZnnz);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -7492,7 +7492,7 @@ cusparseSnnz_compress(cusparseHandle_t handle,
                       int *nnzPerRow,
                       int *nnzC,
                       float tol) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSnnz_compress);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSnnz_compress);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -7513,7 +7513,7 @@ cusparseDnnz_compress(cusparseHandle_t handle,
                       int *nnzPerRow,
                       int *nnzC,
                       double tol) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDnnz_compress);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDnnz_compress);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -7534,7 +7534,7 @@ cusparseCnnz_compress(cusparseHandle_t handle,
                       int *nnzPerRow,
                       int *nnzC,
                       cuComplex tol) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCnnz_compress);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCnnz_compress);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -7555,7 +7555,7 @@ cusparseZnnz_compress(cusparseHandle_t handle,
                       int *nnzPerRow,
                       int *nnzC,
                       cuDoubleComplex tol) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZnnz_compress);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZnnz_compress);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -7581,7 +7581,7 @@ cusparseScsr2csr_compress(cusparseHandle_t handle,
                           int *csrSortedColIndC,
                           int *csrSortedRowPtrC,
                           float tol) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScsr2csr_compress);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScsr2csr_compress);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -7612,7 +7612,7 @@ cusparseDcsr2csr_compress(cusparseHandle_t handle,
                           int *csrSortedColIndC,
                           int *csrSortedRowPtrC,
                           double tol) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDcsr2csr_compress);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDcsr2csr_compress);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -7643,7 +7643,7 @@ cusparseCcsr2csr_compress(cusparseHandle_t handle,
                           int *csrSortedColIndC,
                           int *csrSortedRowPtrC,
                           cuComplex tol) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCcsr2csr_compress);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCcsr2csr_compress);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -7674,7 +7674,7 @@ cusparseZcsr2csr_compress(cusparseHandle_t handle,
                           int *csrSortedColIndC,
                           int *csrSortedRowPtrC,
                           cuDoubleComplex tol) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZcsr2csr_compress);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZcsr2csr_compress);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -7702,7 +7702,7 @@ cusparseSdense2csr(cusparseHandle_t handle,
                    float *csrSortedValA,
                    int *csrSortedRowPtrA,
                    int *csrSortedColIndA) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSdense2csr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSdense2csr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -7727,7 +7727,7 @@ cusparseDdense2csr(cusparseHandle_t handle,
                    double *csrSortedValA,
                    int *csrSortedRowPtrA,
                    int *csrSortedColIndA) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDdense2csr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDdense2csr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -7752,7 +7752,7 @@ cusparseCdense2csr(cusparseHandle_t handle,
                    cuComplex *csrSortedValA,
                    int *csrSortedRowPtrA,
                    int *csrSortedColIndA) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCdense2csr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCdense2csr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -7777,7 +7777,7 @@ cusparseZdense2csr(cusparseHandle_t handle,
                    cuDoubleComplex *csrSortedValA,
                    int *csrSortedRowPtrA,
                    int *csrSortedColIndA) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZdense2csr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZdense2csr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -7801,7 +7801,7 @@ cusparseScsr2dense(cusparseHandle_t handle,
                    const int *csrSortedColIndA,
                    float *A,
                    int lda) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScsr2dense);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScsr2dense);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -7824,7 +7824,7 @@ cusparseDcsr2dense(cusparseHandle_t handle,
                    const int *csrSortedColIndA,
                    double *A,
                    int lda) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDcsr2dense);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDcsr2dense);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -7847,7 +7847,7 @@ cusparseCcsr2dense(cusparseHandle_t handle,
                    const int *csrSortedColIndA,
                    cuComplex *A,
                    int lda) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCcsr2dense);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCcsr2dense);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -7870,7 +7870,7 @@ cusparseZcsr2dense(cusparseHandle_t handle,
                    const int *csrSortedColIndA,
                    cuDoubleComplex *A,
                    int lda) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZcsr2dense);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZcsr2dense);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -7894,7 +7894,7 @@ cusparseSdense2csc(cusparseHandle_t handle,
                    float *cscSortedValA,
                    int *cscSortedRowIndA,
                    int *cscSortedColPtrA) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSdense2csc);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSdense2csc);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -7919,7 +7919,7 @@ cusparseDdense2csc(cusparseHandle_t handle,
                    double *cscSortedValA,
                    int *cscSortedRowIndA,
                    int *cscSortedColPtrA) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDdense2csc);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDdense2csc);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -7944,7 +7944,7 @@ cusparseCdense2csc(cusparseHandle_t handle,
                    cuComplex *cscSortedValA,
                    int *cscSortedRowIndA,
                    int *cscSortedColPtrA) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCdense2csc);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCdense2csc);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -7969,7 +7969,7 @@ cusparseZdense2csc(cusparseHandle_t handle,
                    cuDoubleComplex *cscSortedValA,
                    int *cscSortedRowIndA,
                    int *cscSortedColPtrA) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZdense2csc);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZdense2csc);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -7993,7 +7993,7 @@ cusparseScsc2dense(cusparseHandle_t handle,
                    const int *cscSortedColPtrA,
                    float *A,
                    int lda) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScsc2dense);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScsc2dense);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -8016,7 +8016,7 @@ cusparseDcsc2dense(cusparseHandle_t handle,
                    const int *cscSortedColPtrA,
                    double *A,
                    int lda) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDcsc2dense);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDcsc2dense);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -8039,7 +8039,7 @@ cusparseCcsc2dense(cusparseHandle_t handle,
                    const int *cscSortedColPtrA,
                    cuComplex *A,
                    int lda) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCcsc2dense);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCcsc2dense);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -8062,7 +8062,7 @@ cusparseZcsc2dense(cusparseHandle_t handle,
                    const int *cscSortedColPtrA,
                    cuDoubleComplex *A,
                    int lda) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZcsc2dense);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZcsc2dense);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -8082,7 +8082,7 @@ cusparseXcoo2csr(cusparseHandle_t handle,
                  int m,
                  int *csrSortedRowPtr,
                  cusparseIndexBase_t idxBase) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseXcoo2csr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseXcoo2csr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      cooRowInd,
@@ -8099,7 +8099,7 @@ cusparseXcsr2coo(cusparseHandle_t handle,
                  int m,
                  int *cooRowInd,
                  cusparseIndexBase_t idxBase) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseXcsr2coo);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseXcsr2coo);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      cooRowInd,
@@ -8121,7 +8121,7 @@ cusparseXcsr2bsrNnz(cusparseHandle_t handle,
                     const cusparseMatDescr_t descrC,
                     int *bsrSortedRowPtrC,
                     int *nnzTotalDevHostPtr) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseXcsr2bsrNnz);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseXcsr2bsrNnz);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -8150,7 +8150,7 @@ cusparseScsr2bsr(cusparseHandle_t handle,
                  float *bsrSortedValC,
                  int *bsrSortedRowPtrC,
                  int *bsrSortedColIndC) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScsr2bsr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScsr2bsr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -8181,7 +8181,7 @@ cusparseDcsr2bsr(cusparseHandle_t handle,
                  double *bsrSortedValC,
                  int *bsrSortedRowPtrC,
                  int *bsrSortedColIndC) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDcsr2bsr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDcsr2bsr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -8212,7 +8212,7 @@ cusparseCcsr2bsr(cusparseHandle_t handle,
                  cuComplex *bsrSortedValC,
                  int *bsrSortedRowPtrC,
                  int *bsrSortedColIndC) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCcsr2bsr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCcsr2bsr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -8243,7 +8243,7 @@ cusparseZcsr2bsr(cusparseHandle_t handle,
                  cuDoubleComplex *bsrSortedValC,
                  int *bsrSortedRowPtrC,
                  int *bsrSortedColIndC) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZcsr2bsr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZcsr2bsr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -8274,7 +8274,7 @@ cusparseSbsr2csr(cusparseHandle_t handle,
                  float *csrSortedValC,
                  int *csrSortedRowPtrC,
                  int *csrSortedColIndC) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSbsr2csr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSbsr2csr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -8305,7 +8305,7 @@ cusparseDbsr2csr(cusparseHandle_t handle,
                  double *csrSortedValC,
                  int *csrSortedRowPtrC,
                  int *csrSortedColIndC) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDbsr2csr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDbsr2csr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -8336,7 +8336,7 @@ cusparseCbsr2csr(cusparseHandle_t handle,
                  cuComplex *csrSortedValC,
                  int *csrSortedRowPtrC,
                  int *csrSortedColIndC) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCbsr2csr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCbsr2csr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -8367,7 +8367,7 @@ cusparseZbsr2csr(cusparseHandle_t handle,
                  cuDoubleComplex *csrSortedValC,
                  int *csrSortedRowPtrC,
                  int *csrSortedColIndC) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZbsr2csr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZbsr2csr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -8395,7 +8395,7 @@ cusparseSgebsr2gebsc_bufferSize(cusparseHandle_t handle,
                                 int rowBlockDim,
                                 int colBlockDim,
                                 int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSgebsr2gebsc_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSgebsr2gebsc_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      mb,
@@ -8420,7 +8420,7 @@ cusparseDgebsr2gebsc_bufferSize(cusparseHandle_t handle,
                                 int rowBlockDim,
                                 int colBlockDim,
                                 int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDgebsr2gebsc_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDgebsr2gebsc_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      mb,
@@ -8445,7 +8445,7 @@ cusparseCgebsr2gebsc_bufferSize(cusparseHandle_t handle,
                                 int rowBlockDim,
                                 int colBlockDim,
                                 int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCgebsr2gebsc_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCgebsr2gebsc_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      mb,
@@ -8470,7 +8470,7 @@ cusparseZgebsr2gebsc_bufferSize(cusparseHandle_t handle,
                                 int rowBlockDim,
                                 int colBlockDim,
                                 int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZgebsr2gebsc_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZgebsr2gebsc_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      mb,
@@ -8495,7 +8495,7 @@ cusparseSgebsr2gebsc_bufferSizeExt(cusparseHandle_t handle,
                                    int rowBlockDim,
                                    int colBlockDim,
                                    size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSgebsr2gebsc_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSgebsr2gebsc_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      mb,
@@ -8520,7 +8520,7 @@ cusparseDgebsr2gebsc_bufferSizeExt(cusparseHandle_t handle,
                                    int rowBlockDim,
                                    int colBlockDim,
                                    size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDgebsr2gebsc_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDgebsr2gebsc_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      mb,
@@ -8545,7 +8545,7 @@ cusparseCgebsr2gebsc_bufferSizeExt(cusparseHandle_t handle,
                                    int rowBlockDim,
                                    int colBlockDim,
                                    size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCgebsr2gebsc_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCgebsr2gebsc_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      mb,
@@ -8570,7 +8570,7 @@ cusparseZgebsr2gebsc_bufferSizeExt(cusparseHandle_t handle,
                                    int rowBlockDim,
                                    int colBlockDim,
                                    size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZgebsr2gebsc_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZgebsr2gebsc_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      mb,
@@ -8600,7 +8600,7 @@ cusparseSgebsr2gebsc(cusparseHandle_t handle,
                      cusparseAction_t copyValues,
                      cusparseIndexBase_t idxBase,
                      void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSgebsr2gebsc);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSgebsr2gebsc);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      mb,
@@ -8635,7 +8635,7 @@ cusparseDgebsr2gebsc(cusparseHandle_t handle,
                      cusparseAction_t copyValues,
                      cusparseIndexBase_t idxBase,
                      void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDgebsr2gebsc);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDgebsr2gebsc);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      mb,
@@ -8670,7 +8670,7 @@ cusparseCgebsr2gebsc(cusparseHandle_t handle,
                      cusparseAction_t copyValues,
                      cusparseIndexBase_t idxBase,
                      void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCgebsr2gebsc);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCgebsr2gebsc);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      mb,
@@ -8705,7 +8705,7 @@ cusparseZgebsr2gebsc(cusparseHandle_t handle,
                      cusparseAction_t copyValues,
                      cusparseIndexBase_t idxBase,
                      void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZgebsr2gebsc);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZgebsr2gebsc);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      mb,
@@ -8737,7 +8737,7 @@ cusparseXgebsr2csr(cusparseHandle_t handle,
                    const cusparseMatDescr_t descrC,
                    int *csrSortedRowPtrC,
                    int *csrSortedColIndC) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseXgebsr2csr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseXgebsr2csr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -8768,7 +8768,7 @@ cusparseSgebsr2csr(cusparseHandle_t handle,
                    float *csrSortedValC,
                    int *csrSortedRowPtrC,
                    int *csrSortedColIndC) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSgebsr2csr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSgebsr2csr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -8801,7 +8801,7 @@ cusparseDgebsr2csr(cusparseHandle_t handle,
                    double *csrSortedValC,
                    int *csrSortedRowPtrC,
                    int *csrSortedColIndC) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDgebsr2csr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDgebsr2csr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -8834,7 +8834,7 @@ cusparseCgebsr2csr(cusparseHandle_t handle,
                    cuComplex *csrSortedValC,
                    int *csrSortedRowPtrC,
                    int *csrSortedColIndC) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCgebsr2csr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCgebsr2csr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -8867,7 +8867,7 @@ cusparseZgebsr2csr(cusparseHandle_t handle,
                    cuDoubleComplex *csrSortedValC,
                    int *csrSortedRowPtrC,
                    int *csrSortedColIndC) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZgebsr2csr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZgebsr2csr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -8897,7 +8897,7 @@ cusparseScsr2gebsr_bufferSize(cusparseHandle_t handle,
                               int rowBlockDim,
                               int colBlockDim,
                               int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScsr2gebsr_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScsr2gebsr_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -8924,7 +8924,7 @@ cusparseDcsr2gebsr_bufferSize(cusparseHandle_t handle,
                               int rowBlockDim,
                               int colBlockDim,
                               int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDcsr2gebsr_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDcsr2gebsr_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -8951,7 +8951,7 @@ cusparseCcsr2gebsr_bufferSize(cusparseHandle_t handle,
                               int rowBlockDim,
                               int colBlockDim,
                               int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCcsr2gebsr_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCcsr2gebsr_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -8978,7 +8978,7 @@ cusparseZcsr2gebsr_bufferSize(cusparseHandle_t handle,
                               int rowBlockDim,
                               int colBlockDim,
                               int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZcsr2gebsr_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZcsr2gebsr_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -9005,7 +9005,7 @@ cusparseScsr2gebsr_bufferSizeExt(cusparseHandle_t handle,
                                  int rowBlockDim,
                                  int colBlockDim,
                                  size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScsr2gebsr_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScsr2gebsr_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -9032,7 +9032,7 @@ cusparseDcsr2gebsr_bufferSizeExt(cusparseHandle_t handle,
                                  int rowBlockDim,
                                  int colBlockDim,
                                  size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDcsr2gebsr_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDcsr2gebsr_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -9059,7 +9059,7 @@ cusparseCcsr2gebsr_bufferSizeExt(cusparseHandle_t handle,
                                  int rowBlockDim,
                                  int colBlockDim,
                                  size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCcsr2gebsr_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCcsr2gebsr_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -9086,7 +9086,7 @@ cusparseZcsr2gebsr_bufferSizeExt(cusparseHandle_t handle,
                                  int rowBlockDim,
                                  int colBlockDim,
                                  size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZcsr2gebsr_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZcsr2gebsr_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -9115,7 +9115,7 @@ cusparseXcsr2gebsrNnz(cusparseHandle_t handle,
                       int colBlockDim,
                       int *nnzTotalDevHostPtr,
                       void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseXcsr2gebsrNnz);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseXcsr2gebsrNnz);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -9148,7 +9148,7 @@ cusparseScsr2gebsr(cusparseHandle_t handle,
                    int rowBlockDim,
                    int colBlockDim,
                    void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScsr2gebsr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScsr2gebsr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -9183,7 +9183,7 @@ cusparseDcsr2gebsr(cusparseHandle_t handle,
                    int rowBlockDim,
                    int colBlockDim,
                    void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDcsr2gebsr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDcsr2gebsr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -9218,7 +9218,7 @@ cusparseCcsr2gebsr(cusparseHandle_t handle,
                    int rowBlockDim,
                    int colBlockDim,
                    void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCcsr2gebsr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCcsr2gebsr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -9253,7 +9253,7 @@ cusparseZcsr2gebsr(cusparseHandle_t handle,
                    int rowBlockDim,
                    int colBlockDim,
                    void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZcsr2gebsr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZcsr2gebsr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -9287,7 +9287,7 @@ cusparseSgebsr2gebsr_bufferSize(cusparseHandle_t handle,
                                 int rowBlockDimC,
                                 int colBlockDimC,
                                 int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSgebsr2gebsr_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSgebsr2gebsr_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -9320,7 +9320,7 @@ cusparseDgebsr2gebsr_bufferSize(cusparseHandle_t handle,
                                 int rowBlockDimC,
                                 int colBlockDimC,
                                 int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDgebsr2gebsr_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDgebsr2gebsr_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -9353,7 +9353,7 @@ cusparseCgebsr2gebsr_bufferSize(cusparseHandle_t handle,
                                 int rowBlockDimC,
                                 int colBlockDimC,
                                 int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCgebsr2gebsr_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCgebsr2gebsr_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -9386,7 +9386,7 @@ cusparseZgebsr2gebsr_bufferSize(cusparseHandle_t handle,
                                 int rowBlockDimC,
                                 int colBlockDimC,
                                 int *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZgebsr2gebsr_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZgebsr2gebsr_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -9419,7 +9419,7 @@ cusparseSgebsr2gebsr_bufferSizeExt(cusparseHandle_t handle,
                                    int rowBlockDimC,
                                    int colBlockDimC,
                                    size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSgebsr2gebsr_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSgebsr2gebsr_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -9452,7 +9452,7 @@ cusparseDgebsr2gebsr_bufferSizeExt(cusparseHandle_t handle,
                                    int rowBlockDimC,
                                    int colBlockDimC,
                                    size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDgebsr2gebsr_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDgebsr2gebsr_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -9485,7 +9485,7 @@ cusparseCgebsr2gebsr_bufferSizeExt(cusparseHandle_t handle,
                                    int rowBlockDimC,
                                    int colBlockDimC,
                                    size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCgebsr2gebsr_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCgebsr2gebsr_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -9518,7 +9518,7 @@ cusparseZgebsr2gebsr_bufferSizeExt(cusparseHandle_t handle,
                                    int rowBlockDimC,
                                    int colBlockDimC,
                                    size_t *pBufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZgebsr2gebsr_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZgebsr2gebsr_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -9553,7 +9553,7 @@ cusparseXgebsr2gebsrNnz(cusparseHandle_t handle,
                         int colBlockDimC,
                         int *nnzTotalDevHostPtr,
                         void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseXgebsr2gebsrNnz);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseXgebsr2gebsrNnz);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -9592,7 +9592,7 @@ cusparseSgebsr2gebsr(cusparseHandle_t handle,
                      int rowBlockDimC,
                      int colBlockDimC,
                      void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSgebsr2gebsr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSgebsr2gebsr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -9633,7 +9633,7 @@ cusparseDgebsr2gebsr(cusparseHandle_t handle,
                      int rowBlockDimC,
                      int colBlockDimC,
                      void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDgebsr2gebsr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDgebsr2gebsr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -9674,7 +9674,7 @@ cusparseCgebsr2gebsr(cusparseHandle_t handle,
                      int rowBlockDimC,
                      int colBlockDimC,
                      void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCgebsr2gebsr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCgebsr2gebsr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -9715,7 +9715,7 @@ cusparseZgebsr2gebsr(cusparseHandle_t handle,
                      int rowBlockDimC,
                      int colBlockDimC,
                      void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZgebsr2gebsr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZgebsr2gebsr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      dirA,
@@ -9745,7 +9745,7 @@ cusparseStatus_t CUSPARSEAPI
 cusparseCreateIdentityPermutation(cusparseHandle_t handle,
                                   int n,
                                   int *p) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCreateIdentityPermutation);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCreateIdentityPermutation);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      n,
@@ -9760,7 +9760,7 @@ cusparseXcoosort_bufferSizeExt(cusparseHandle_t handle,
                                const int *cooRowsA,
                                const int *cooColsA,
                                size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseXcoosort_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseXcoosort_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -9780,7 +9780,7 @@ cusparseXcoosortByRow(cusparseHandle_t handle,
                       int *cooColsA,
                       int *P,
                       void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseXcoosortByRow);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseXcoosortByRow);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -9801,7 +9801,7 @@ cusparseXcoosortByColumn(cusparseHandle_t handle,
                          int *cooColsA,
                          int *P,
                          void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseXcoosortByColumn);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseXcoosortByColumn);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -9821,7 +9821,7 @@ cusparseXcsrsort_bufferSizeExt(cusparseHandle_t handle,
                                const int *csrRowPtrA,
                                const int *csrColIndA,
                                size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseXcsrsort_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseXcsrsort_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -9842,7 +9842,7 @@ cusparseXcsrsort(cusparseHandle_t handle,
                  int *csrColIndA,
                  int *P,
                  void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseXcsrsort);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseXcsrsort);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -9863,7 +9863,7 @@ cusparseXcscsort_bufferSizeExt(cusparseHandle_t handle,
                                const int *cscColPtrA,
                                const int *cscRowIndA,
                                size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseXcscsort_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseXcscsort_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -9884,7 +9884,7 @@ cusparseXcscsort(cusparseHandle_t handle,
                  int *cscRowIndA,
                  int *P,
                  void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseXcscsort);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseXcscsort);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -9907,7 +9907,7 @@ cusparseScsru2csr_bufferSizeExt(cusparseHandle_t handle,
                                 int *csrColInd,
                                 csru2csrInfo_t info,
                                 size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScsru2csr_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScsru2csr_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -9930,7 +9930,7 @@ cusparseDcsru2csr_bufferSizeExt(cusparseHandle_t handle,
                                 int *csrColInd,
                                 csru2csrInfo_t info,
                                 size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDcsru2csr_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDcsru2csr_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -9953,7 +9953,7 @@ cusparseCcsru2csr_bufferSizeExt(cusparseHandle_t handle,
                                 int *csrColInd,
                                 csru2csrInfo_t info,
                                 size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCcsru2csr_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCcsru2csr_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -9976,7 +9976,7 @@ cusparseZcsru2csr_bufferSizeExt(cusparseHandle_t handle,
                                 int *csrColInd,
                                 csru2csrInfo_t info,
                                 size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZcsru2csr_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZcsru2csr_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10000,7 +10000,7 @@ cusparseScsru2csr(cusparseHandle_t handle,
                   int *csrColInd,
                   csru2csrInfo_t info,
                   void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScsru2csr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScsru2csr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10025,7 +10025,7 @@ cusparseDcsru2csr(cusparseHandle_t handle,
                   int *csrColInd,
                   csru2csrInfo_t info,
                   void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDcsru2csr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDcsru2csr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10050,7 +10050,7 @@ cusparseCcsru2csr(cusparseHandle_t handle,
                   int *csrColInd,
                   csru2csrInfo_t info,
                   void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCcsru2csr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCcsru2csr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10075,7 +10075,7 @@ cusparseZcsru2csr(cusparseHandle_t handle,
                   int *csrColInd,
                   csru2csrInfo_t info,
                   void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZcsru2csr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZcsru2csr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10100,7 +10100,7 @@ cusparseScsr2csru(cusparseHandle_t handle,
                   int *csrColInd,
                   csru2csrInfo_t info,
                   void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScsr2csru);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScsr2csru);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10125,7 +10125,7 @@ cusparseDcsr2csru(cusparseHandle_t handle,
                   int *csrColInd,
                   csru2csrInfo_t info,
                   void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDcsr2csru);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDcsr2csru);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10150,7 +10150,7 @@ cusparseCcsr2csru(cusparseHandle_t handle,
                   int *csrColInd,
                   csru2csrInfo_t info,
                   void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCcsr2csru);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCcsr2csru);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10175,7 +10175,7 @@ cusparseZcsr2csru(cusparseHandle_t handle,
                   int *csrColInd,
                   csru2csrInfo_t info,
                   void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseZcsr2csru);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseZcsr2csru);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10202,7 +10202,7 @@ cusparseHpruneDense2csr_bufferSizeExt(cusparseHandle_t handle,
                                       const int *csrSortedRowPtrC,
                                       const int *csrSortedColIndC,
                                       size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseHpruneDense2csr_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseHpruneDense2csr_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10230,7 +10230,7 @@ cusparseSpruneDense2csr_bufferSizeExt(cusparseHandle_t handle,
                                       const int *csrSortedRowPtrC,
                                       const int *csrSortedColIndC,
                                       size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpruneDense2csr_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpruneDense2csr_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10257,7 +10257,7 @@ cusparseDpruneDense2csr_bufferSizeExt(cusparseHandle_t handle,
                                       const int *csrSortedRowPtrC,
                                       const int *csrSortedColIndC,
                                       size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDpruneDense2csr_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDpruneDense2csr_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10284,7 +10284,7 @@ cusparseHpruneDense2csrNnz(cusparseHandle_t handle,
                            int *csrRowPtrC,
                            int *nnzTotalDevHostPtr,
                            void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseHpruneDense2csrNnz);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseHpruneDense2csrNnz);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10310,7 +10310,7 @@ cusparseSpruneDense2csrNnz(cusparseHandle_t handle,
                            int *csrRowPtrC,
                            int *nnzTotalDevHostPtr,
                            void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpruneDense2csrNnz);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpruneDense2csrNnz);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10335,7 +10335,7 @@ cusparseDpruneDense2csrNnz(cusparseHandle_t handle,
                            int *csrSortedRowPtrC,
                            int *nnzTotalDevHostPtr,
                            void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDpruneDense2csrNnz);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDpruneDense2csrNnz);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10362,7 +10362,7 @@ cusparseHpruneDense2csr(cusparseHandle_t handle,
                         const int *csrSortedRowPtrC,
                         int *csrSortedColIndC,
                         void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseHpruneDense2csr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseHpruneDense2csr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10390,7 +10390,7 @@ cusparseSpruneDense2csr(cusparseHandle_t handle,
                         const int *csrSortedRowPtrC,
                         int *csrSortedColIndC,
                         void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpruneDense2csr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpruneDense2csr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10417,7 +10417,7 @@ cusparseDpruneDense2csr(cusparseHandle_t handle,
                         const int *csrSortedRowPtrC,
                         int *csrSortedColIndC,
                         void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDpruneDense2csr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDpruneDense2csr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10448,7 +10448,7 @@ cusparseHpruneCsr2csr_bufferSizeExt(cusparseHandle_t handle,
                                     const int *csrSortedRowPtrC,
                                     const int *csrSortedColIndC,
                                     size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseHpruneCsr2csr_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseHpruneCsr2csr_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10482,7 +10482,7 @@ cusparseSpruneCsr2csr_bufferSizeExt(cusparseHandle_t handle,
                                     const int *csrSortedRowPtrC,
                                     const int *csrSortedColIndC,
                                     size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpruneCsr2csr_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpruneCsr2csr_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10515,7 +10515,7 @@ cusparseDpruneCsr2csr_bufferSizeExt(cusparseHandle_t handle,
                                     const int *csrSortedRowPtrC,
                                     const int *csrSortedColIndC,
                                     size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDpruneCsr2csr_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDpruneCsr2csr_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10548,7 +10548,7 @@ cusparseHpruneCsr2csrNnz(cusparseHandle_t handle,
                          int *csrSortedRowPtrC,
                          int *nnzTotalDevHostPtr,
                          void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseHpruneCsr2csrNnz);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseHpruneCsr2csrNnz);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10580,7 +10580,7 @@ cusparseSpruneCsr2csrNnz(cusparseHandle_t handle,
                          int *csrSortedRowPtrC,
                          int *nnzTotalDevHostPtr,
                          void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpruneCsr2csrNnz);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpruneCsr2csrNnz);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10611,7 +10611,7 @@ cusparseDpruneCsr2csrNnz(cusparseHandle_t handle,
                          int *csrSortedRowPtrC,
                          int *nnzTotalDevHostPtr,
                          void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDpruneCsr2csrNnz);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDpruneCsr2csrNnz);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10644,7 +10644,7 @@ cusparseHpruneCsr2csr(cusparseHandle_t handle,
                       const int *csrSortedRowPtrC,
                       int *csrSortedColIndC,
                       void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseHpruneCsr2csr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseHpruneCsr2csr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10678,7 +10678,7 @@ cusparseSpruneCsr2csr(cusparseHandle_t handle,
                       const int *csrSortedRowPtrC,
                       int *csrSortedColIndC,
                       void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpruneCsr2csr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpruneCsr2csr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10711,7 +10711,7 @@ cusparseDpruneCsr2csr(cusparseHandle_t handle,
                       const int *csrSortedRowPtrC,
                       int *csrSortedColIndC,
                       void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDpruneCsr2csr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDpruneCsr2csr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10744,7 +10744,7 @@ cusparseHpruneDense2csrByPercentage_bufferSizeExt(
     const int *csrSortedColIndC,
     pruneInfo_t info,
     size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseHpruneDense2csrByPercentage_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseHpruneDense2csrByPercentage_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10775,7 +10775,7 @@ cusparseSpruneDense2csrByPercentage_bufferSizeExt(
     const int *csrSortedColIndC,
     pruneInfo_t info,
     size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpruneDense2csrByPercentage_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpruneDense2csrByPercentage_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10805,7 +10805,7 @@ cusparseDpruneDense2csrByPercentage_bufferSizeExt(
     const int *csrSortedColIndC,
     pruneInfo_t info,
     size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDpruneDense2csrByPercentage_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDpruneDense2csrByPercentage_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10835,7 +10835,7 @@ cusparseHpruneDense2csrNnzByPercentage(
     int *nnzTotalDevHostPtr,
     pruneInfo_t info,
     void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseHpruneDense2csrNnzByPercentage);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseHpruneDense2csrNnzByPercentage);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10864,7 +10864,7 @@ cusparseSpruneDense2csrNnzByPercentage(
     int *nnzTotalDevHostPtr,
     pruneInfo_t info,
     void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpruneDense2csrNnzByPercentage);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpruneDense2csrNnzByPercentage);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10892,7 +10892,7 @@ cusparseDpruneDense2csrNnzByPercentage(
     int *nnzTotalDevHostPtr,
     pruneInfo_t info,
     void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDpruneDense2csrNnzByPercentage);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDpruneDense2csrNnzByPercentage);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10921,7 +10921,7 @@ cusparseHpruneDense2csrByPercentage(cusparseHandle_t handle,
                                     int *csrSortedColIndC,
                                     pruneInfo_t info,
                                     void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseHpruneDense2csrByPercentage);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseHpruneDense2csrByPercentage);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10951,7 +10951,7 @@ cusparseSpruneDense2csrByPercentage(cusparseHandle_t handle,
                                     int *csrSortedColIndC,
                                     pruneInfo_t info,
                                     void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpruneDense2csrByPercentage);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpruneDense2csrByPercentage);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -10980,7 +10980,7 @@ cusparseDpruneDense2csrByPercentage(cusparseHandle_t handle,
                                     int *csrSortedColIndC,
                                     pruneInfo_t info,
                                     void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDpruneDense2csrByPercentage);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDpruneDense2csrByPercentage);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -11015,7 +11015,7 @@ cusparseHpruneCsr2csrByPercentage_bufferSizeExt(
     const int *csrSortedColIndC,
     pruneInfo_t info,
     size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseHpruneCsr2csrByPercentage_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseHpruneCsr2csrByPercentage_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -11053,7 +11053,7 @@ cusparseSpruneCsr2csrByPercentage_bufferSizeExt(
     const int *csrSortedColIndC,
     pruneInfo_t info,
     size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpruneCsr2csrByPercentage_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpruneCsr2csrByPercentage_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -11089,7 +11089,7 @@ cusparseDpruneCsr2csrByPercentage_bufferSizeExt(
     const int *csrSortedColIndC,
     pruneInfo_t info,
     size_t *pBufferSizeInBytes) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDpruneCsr2csrByPercentage_bufferSizeExt);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDpruneCsr2csrByPercentage_bufferSizeExt);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -11126,7 +11126,7 @@ cusparseHpruneCsr2csrNnzByPercentage(
     int *nnzTotalDevHostPtr,
     pruneInfo_t info,
     void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseHpruneCsr2csrNnzByPercentage);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseHpruneCsr2csrNnzByPercentage);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -11162,7 +11162,7 @@ cusparseSpruneCsr2csrNnzByPercentage(
     int *nnzTotalDevHostPtr,
     pruneInfo_t info,
     void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpruneCsr2csrNnzByPercentage);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpruneCsr2csrNnzByPercentage);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -11196,7 +11196,7 @@ cusparseDpruneCsr2csrNnzByPercentage(
     int *nnzTotalDevHostPtr,
     pruneInfo_t info,
     void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDpruneCsr2csrNnzByPercentage);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDpruneCsr2csrNnzByPercentage);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -11231,7 +11231,7 @@ cusparseHpruneCsr2csrByPercentage(cusparseHandle_t handle,
                                   int *csrSortedColIndC,
                                   pruneInfo_t info,
                                   void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseHpruneCsr2csrByPercentage);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseHpruneCsr2csrByPercentage);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -11268,7 +11268,7 @@ cusparseSpruneCsr2csrByPercentage(cusparseHandle_t handle,
                                   int *csrSortedColIndC,
                                   pruneInfo_t info,
                                   void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpruneCsr2csrByPercentage);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpruneCsr2csrByPercentage);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -11303,7 +11303,7 @@ cusparseDpruneCsr2csrByPercentage(cusparseHandle_t handle,
                                   int *csrSortedColIndC,
                                   pruneInfo_t info,
                                   void *pBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDpruneCsr2csrByPercentage);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDpruneCsr2csrByPercentage);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -11342,7 +11342,7 @@ cusparseCsr2cscEx2(cusparseHandle_t handle,
                    cusparseIndexBase_t idxBase,
                    cusparseCsr2CscAlg_t alg,
                    void *buffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCsr2cscEx2);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCsr2cscEx2);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -11377,7 +11377,7 @@ cusparseCsr2cscEx2_bufferSize(cusparseHandle_t handle,
                               cusparseIndexBase_t idxBase,
                               cusparseCsr2CscAlg_t alg,
                               size_t *bufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCsr2cscEx2_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCsr2cscEx2_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      m,
@@ -11409,7 +11409,7 @@ cusparseCreateSpVec(cusparseSpVecDescr_t *spVecDescr,
                     cusparseIndexType_t idxType,
                     cusparseIndexBase_t idxBase,
                     cudaDataType valueType) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCreateSpVec);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCreateSpVec);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(spVecDescr,
                      size,
@@ -11423,7 +11423,7 @@ cusparseCreateSpVec(cusparseSpVecDescr_t *spVecDescr,
 
 cusparseStatus_t CUSPARSEAPI
 cusparseDestroySpVec(cusparseSpVecDescr_t spVecDescr) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDestroySpVec);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDestroySpVec);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(spVecDescr);
 }
@@ -11437,7 +11437,7 @@ cusparseSpVecGet(cusparseSpVecDescr_t spVecDescr,
                  cusparseIndexType_t *idxType,
                  cusparseIndexBase_t *idxBase,
                  cudaDataType *valueType) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpVecGet);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpVecGet);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(spVecDescr,
                      size,
@@ -11452,7 +11452,7 @@ cusparseSpVecGet(cusparseSpVecDescr_t spVecDescr,
 cusparseStatus_t CUSPARSEAPI
 cusparseSpVecGetIndexBase(cusparseSpVecDescr_t spVecDescr,
                           cusparseIndexBase_t *idxBase) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpVecGetIndexBase);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpVecGetIndexBase);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(spVecDescr,
                      idxBase);
@@ -11461,7 +11461,7 @@ cusparseSpVecGetIndexBase(cusparseSpVecDescr_t spVecDescr,
 cusparseStatus_t CUSPARSEAPI
 cusparseSpVecGetValues(cusparseSpVecDescr_t spVecDescr,
                        void **values) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpVecGetValues);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpVecGetValues);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(spVecDescr,
                      values);
@@ -11470,7 +11470,7 @@ cusparseSpVecGetValues(cusparseSpVecDescr_t spVecDescr,
 cusparseStatus_t CUSPARSEAPI
 cusparseSpVecSetValues(cusparseSpVecDescr_t spVecDescr,
                        void *values) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpVecSetValues);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpVecSetValues);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(spVecDescr,
                      values);
@@ -11485,7 +11485,7 @@ cusparseCreateDnVec(cusparseDnVecDescr_t *dnVecDescr,
                     int64_t size,
                     void *values,
                     cudaDataType valueType) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCreateDnVec);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCreateDnVec);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(dnVecDescr,
                      size,
@@ -11495,7 +11495,7 @@ cusparseCreateDnVec(cusparseDnVecDescr_t *dnVecDescr,
 
 cusparseStatus_t CUSPARSEAPI
 cusparseDestroyDnVec(cusparseDnVecDescr_t dnVecDescr) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDestroyDnVec);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDestroyDnVec);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(dnVecDescr);
 }
@@ -11505,7 +11505,7 @@ cusparseDnVecGet(cusparseDnVecDescr_t dnVecDescr,
                  int64_t *size,
                  void **values,
                  cudaDataType *valueType) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDnVecGet);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDnVecGet);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(dnVecDescr,
                      size,
@@ -11516,7 +11516,7 @@ cusparseDnVecGet(cusparseDnVecDescr_t dnVecDescr,
 cusparseStatus_t CUSPARSEAPI
 cusparseDnVecGetValues(cusparseDnVecDescr_t dnVecDescr,
                        void **values) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDnVecGetValues);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDnVecGetValues);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(dnVecDescr,
                      values);
@@ -11525,7 +11525,7 @@ cusparseDnVecGetValues(cusparseDnVecDescr_t dnVecDescr,
 cusparseStatus_t CUSPARSEAPI
 cusparseDnVecSetValues(cusparseDnVecDescr_t dnVecDescr,
                        void *values) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDnVecSetValues);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDnVecSetValues);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(dnVecDescr,
                      values);
@@ -11537,7 +11537,7 @@ cusparseDnVecSetValues(cusparseDnVecDescr_t dnVecDescr,
 
 cusparseStatus_t CUSPARSEAPI
 cusparseDestroySpMat(cusparseSpMatDescr_t spMatDescr) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDestroySpMat);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDestroySpMat);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(spMatDescr);
 }
@@ -11545,7 +11545,7 @@ cusparseDestroySpMat(cusparseSpMatDescr_t spMatDescr) {
 cusparseStatus_t CUSPARSEAPI
 cusparseSpMatGetFormat(cusparseSpMatDescr_t spMatDescr,
                        cusparseFormat_t *format) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpMatGetFormat);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpMatGetFormat);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(spMatDescr,
                      format);
@@ -11554,7 +11554,7 @@ cusparseSpMatGetFormat(cusparseSpMatDescr_t spMatDescr,
 cusparseStatus_t CUSPARSEAPI
 cusparseSpMatGetIndexBase(cusparseSpMatDescr_t spMatDescr,
                           cusparseIndexBase_t *idxBase) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpMatGetIndexBase);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpMatGetIndexBase);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(spMatDescr,
                      idxBase);
@@ -11563,7 +11563,7 @@ cusparseSpMatGetIndexBase(cusparseSpMatDescr_t spMatDescr,
 cusparseStatus_t CUSPARSEAPI
 cusparseSpMatGetValues(cusparseSpMatDescr_t spMatDescr,
                        void **values) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpMatGetValues);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpMatGetValues);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(spMatDescr,
                      values);
@@ -11572,7 +11572,7 @@ cusparseSpMatGetValues(cusparseSpMatDescr_t spMatDescr,
 cusparseStatus_t CUSPARSEAPI
 cusparseSpMatSetValues(cusparseSpMatDescr_t spMatDescr,
                        void *values) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpMatSetValues);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpMatSetValues);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(spMatDescr,
                      values);
@@ -11583,7 +11583,7 @@ cusparseSpMatGetSize(cusparseSpMatDescr_t spMatDescr,
                      int64_t *rows,
                      int64_t *cols,
                      int64_t *nnz) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpMatGetSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpMatGetSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(spMatDescr,
                      rows,
@@ -11594,7 +11594,7 @@ cusparseSpMatGetSize(cusparseSpMatDescr_t spMatDescr,
 cusparseStatus_t CUSPARSEAPI
 cusparseSpMatSetStridedBatch(cusparseSpMatDescr_t spMatDescr,
                              int batchCount) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpMatSetStridedBatch);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpMatSetStridedBatch);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(spMatDescr,
                      batchCount);
@@ -11603,7 +11603,7 @@ cusparseSpMatSetStridedBatch(cusparseSpMatDescr_t spMatDescr,
 cusparseStatus_t CUSPARSEAPI
 cusparseSpMatGetStridedBatch(cusparseSpMatDescr_t spMatDescr,
                              int *batchCount) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpMatGetStridedBatch);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpMatGetStridedBatch);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(spMatDescr,
                      batchCount);
@@ -11613,7 +11613,7 @@ cusparseStatus_t CUSPARSEAPI
 cusparseCooSetStridedBatch(cusparseSpMatDescr_t spMatDescr,
                            int batchCount,
                            int64_t batchStride) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCooSetStridedBatch);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCooSetStridedBatch);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(spMatDescr,
                      batchCount,
@@ -11625,7 +11625,7 @@ cusparseCsrSetStridedBatch(cusparseSpMatDescr_t spMatDescr,
                            int batchCount,
                            int64_t offsetsBatchStride,
                            int64_t columnsValuesBatchStride) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCsrSetStridedBatch);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCsrSetStridedBatch);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(spMatDescr,
                      batchCount,
@@ -11648,7 +11648,7 @@ cusparseCreateCsr(cusparseSpMatDescr_t *spMatDescr,
                   cusparseIndexType_t csrColIndType,
                   cusparseIndexBase_t idxBase,
                   cudaDataType valueType) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCreateCsr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCreateCsr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(spMatDescr,
                      rows,
@@ -11675,7 +11675,7 @@ cusparseCsrGet(cusparseSpMatDescr_t spMatDescr,
                cusparseIndexType_t *csrColIndType,
                cusparseIndexBase_t *idxBase,
                cudaDataType *valueType) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCsrGet);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCsrGet);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(spMatDescr,
                      rows,
@@ -11695,7 +11695,7 @@ cusparseCsrSetPointers(cusparseSpMatDescr_t spMatDescr,
                        void *csrRowOffsets,
                        void *csrColInd,
                        void *csrValues) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCsrSetPointers);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCsrSetPointers);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(spMatDescr,
                      csrRowOffsets,
@@ -11717,7 +11717,7 @@ cusparseCreateCoo(cusparseSpMatDescr_t *spMatDescr,
                   cusparseIndexType_t cooIdxType,
                   cusparseIndexBase_t idxBase,
                   cudaDataType valueType) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCreateCoo);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCreateCoo);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(spMatDescr,
                      rows,
@@ -11741,7 +11741,7 @@ cusparseCreateCooAoS(cusparseSpMatDescr_t *spMatDescr,
                      cusparseIndexType_t cooIdxType,
                      cusparseIndexBase_t idxBase,
                      cudaDataType valueType) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCreateCooAoS);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCreateCooAoS);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(spMatDescr,
                      rows,
@@ -11765,7 +11765,7 @@ cusparseCooGet(cusparseSpMatDescr_t spMatDescr,
                cusparseIndexType_t *idxType,
                cusparseIndexBase_t *idxBase,
                cudaDataType *valueType) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCooGet);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCooGet);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(spMatDescr,
                      rows,
@@ -11789,7 +11789,7 @@ cusparseCooAoSGet(cusparseSpMatDescr_t spMatDescr,
                   cusparseIndexType_t *idxType,
                   cusparseIndexBase_t *idxBase,
                   cudaDataType *valueType) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCooAoSGet);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCooAoSGet);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(spMatDescr,
                      rows,
@@ -11814,7 +11814,7 @@ cusparseCreateDnMat(cusparseDnMatDescr_t *dnMatDescr,
                     void *values,
                     cudaDataType valueType,
                     cusparseOrder_t order) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseCreateDnMat);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseCreateDnMat);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(dnMatDescr,
                      rows,
@@ -11827,7 +11827,7 @@ cusparseCreateDnMat(cusparseDnMatDescr_t *dnMatDescr,
 
 cusparseStatus_t CUSPARSEAPI
 cusparseDestroyDnMat(cusparseDnMatDescr_t dnMatDescr) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDestroyDnMat);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDestroyDnMat);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(dnMatDescr);
 }
@@ -11840,7 +11840,7 @@ cusparseDnMatGet(cusparseDnMatDescr_t dnMatDescr,
                  void **values,
                  cudaDataType *type,
                  cusparseOrder_t *order) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDnMatGet);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDnMatGet);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(dnMatDescr,
                      rows,
@@ -11854,7 +11854,7 @@ cusparseDnMatGet(cusparseDnMatDescr_t dnMatDescr,
 cusparseStatus_t CUSPARSEAPI
 cusparseDnMatGetValues(cusparseDnMatDescr_t dnMatDescr,
                        void **values) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDnMatGetValues);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDnMatGetValues);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(dnMatDescr,
                      values);
@@ -11863,7 +11863,7 @@ cusparseDnMatGetValues(cusparseDnMatDescr_t dnMatDescr,
 cusparseStatus_t CUSPARSEAPI
 cusparseDnMatSetValues(cusparseDnMatDescr_t dnMatDescr,
                        void *values) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDnMatSetValues);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDnMatSetValues);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(dnMatDescr,
                      values);
@@ -11873,7 +11873,7 @@ cusparseStatus_t CUSPARSEAPI
 cusparseDnMatSetStridedBatch(cusparseDnMatDescr_t dnMatDescr,
                              int batchCount,
                              int64_t batchStride) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDnMatSetStridedBatch);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDnMatSetStridedBatch);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(dnMatDescr,
                      batchCount,
@@ -11884,7 +11884,7 @@ cusparseStatus_t CUSPARSEAPI
 cusparseDnMatGetStridedBatch(cusparseDnMatDescr_t dnMatDescr,
                              int *batchCount,
                              int64_t *batchStride) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseDnMatGetStridedBatch);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseDnMatGetStridedBatch);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(dnMatDescr,
                      batchCount,
@@ -11901,7 +11901,7 @@ cusparseAxpby(cusparseHandle_t handle,
               cusparseSpVecDescr_t vecX,
               const void *beta,
               cusparseDnVecDescr_t vecY) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseAxpby);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseAxpby);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      alpha,
@@ -11914,7 +11914,7 @@ cusparseStatus_t CUSPARSEAPI
 cusparseGather(cusparseHandle_t handle,
                cusparseDnVecDescr_t vecY,
                cusparseSpVecDescr_t vecX) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseGather);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseGather);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      vecY,
@@ -11925,7 +11925,7 @@ cusparseStatus_t CUSPARSEAPI
 cusparseScatter(cusparseHandle_t handle,
                 cusparseSpVecDescr_t vecX,
                 cusparseDnVecDescr_t vecY) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseScatter);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseScatter);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      vecX,
@@ -11938,7 +11938,7 @@ cusparseRot(cusparseHandle_t handle,
             const void *s_coeff,
             cusparseSpVecDescr_t vecX,
             cusparseDnVecDescr_t vecY) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseRot);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseRot);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      c_coeff,
@@ -11955,7 +11955,7 @@ cusparseSpVV_bufferSize(cusparseHandle_t handle,
                         const void *result,
                         cudaDataType computeType,
                         size_t *bufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpVV_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpVV_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      opX,
@@ -11974,7 +11974,7 @@ cusparseSpVV(cusparseHandle_t handle,
              void *result,
              cudaDataType computeType,
              void *externalBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpVV);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpVV);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      opX,
@@ -12000,7 +12000,7 @@ cusparseSpMV(cusparseHandle_t handle,
              cudaDataType computeType,
              cusparseSpMVAlg_t alg,
              void *externalBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpMV);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpMV);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      opA,
@@ -12025,7 +12025,7 @@ cusparseSpMV_bufferSize(cusparseHandle_t handle,
                         cudaDataType computeType,
                         cusparseSpMVAlg_t alg,
                         size_t *bufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpMV_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpMV_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      opA,
@@ -12055,7 +12055,7 @@ cusparseSpMM(cusparseHandle_t handle,
              cudaDataType computeType,
              cusparseSpMMAlg_t alg,
              void *externalBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpMM);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpMM);
     // LOG(INFO, "Enter %s()", __FUNCTION__);
     return _real_sym(handle, opA, opB, alpha, matA, matB, beta, matC, computeType, alg, externalBuffer);
 }
@@ -12121,7 +12121,7 @@ cusparseSpMM_bufferSize(cusparseHandle_t handle,
                         cudaDataType computeType,
                         cusparseSpMMAlg_t alg,
                         size_t *bufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpMM_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpMM_bufferSize);
     // LOG(INFO, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      opA,
@@ -12143,14 +12143,14 @@ cusparseSpMM_bufferSize(cusparseHandle_t handle,
 
 cusparseStatus_t CUSPARSEAPI
 cusparseSpGEMM_createDescr(cusparseSpGEMMDescr_t *descr) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpGEMM_createDescr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpGEMM_createDescr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(descr);
 }
 
 cusparseStatus_t CUSPARSEAPI
 cusparseSpGEMM_destroyDescr(cusparseSpGEMMDescr_t descr) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpGEMM_destroyDescr);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpGEMM_destroyDescr);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(descr);
 }
@@ -12169,7 +12169,7 @@ cusparseSpGEMM_workEstimation(cusparseHandle_t handle,
                               cusparseSpGEMMDescr_t spgemmDescr,
                               size_t *bufferSize1,
                               void *externalBuffer1) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpGEMM_workEstimation);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpGEMM_workEstimation);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      opA,
@@ -12200,7 +12200,7 @@ cusparseSpGEMM_compute(cusparseHandle_t handle,
                        cusparseSpGEMMDescr_t spgemmDescr,
                        size_t *bufferSize2,
                        void *externalBuffer2) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpGEMM_compute);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpGEMM_compute);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      opA,
@@ -12229,7 +12229,7 @@ cusparseSpGEMM_copy(cusparseHandle_t handle,
                     cudaDataType computeType,
                     cusparseSpGEMMAlg_t alg,
                     cusparseSpGEMMDescr_t spgemmDescr) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseSpGEMM_copy);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseSpGEMM_copy);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      opA,
@@ -12259,7 +12259,7 @@ cusparseConstrainedGeMM(cusparseHandle_t handle,
                         cusparseSpMatDescr_t matC,
                         cudaDataType computeType,
                         void *externalBuffer) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseConstrainedGeMM);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseConstrainedGeMM);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      opA,
@@ -12284,7 +12284,7 @@ cusparseConstrainedGeMM_bufferSize(cusparseHandle_t handle,
                                    cusparseSpMatDescr_t matC,
                                    cudaDataType computeType,
                                    size_t *bufferSize) {
-    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_1, cusparseConstrainedGeMM_bufferSize);
+    LOAD_SPARSE_SYMBOL_FOR_ONCE(CUSPARSE_LIB_11_0, cusparseConstrainedGeMM_bufferSize);
     LOG(TRACE, "Enter %s()", __FUNCTION__);
     return _real_sym(handle,
                      opA,

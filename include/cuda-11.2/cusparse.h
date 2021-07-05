@@ -49,10 +49,10 @@
 #if !defined(CUSPARSE_H_)
 #define CUSPARSE_H_
 
-#include "cuda-11.1/cuComplex.h"
-#include "cuda-11.1/cuda_fp16.h"
-#include "cuda-11.1/driver_types.h"
-#include "cuda-11.1/library_types.h"
+#include "cuda-11.2/cuComplex.h"
+#include "cuda-11.2/cuda_fp16.h"
+#include "cuda-11.2/driver_types.h"
+#include "cuda-11.2/library_types.h"
 #include <stdint.h>
 
 //##############################################################################
@@ -60,9 +60,9 @@
 //##############################################################################
 
 #define CUSPARSE_VER_MAJOR 11
-#define CUSPARSE_VER_MINOR 2
-#define CUSPARSE_VER_PATCH 0
-#define CUSPARSE_VER_BUILD 275
+#define CUSPARSE_VER_MINOR 4
+#define CUSPARSE_VER_PATCH 1
+#define CUSPARSE_VER_BUILD 1152
 #define CUSPARSE_VERSION (CUSPARSE_VER_MAJOR * 1000 + \
                           CUSPARSE_VER_MINOR *  100 + \
                           CUSPARSE_VER_PATCH)
@@ -705,6 +705,7 @@ cusparseZgemvi_bufferSize(cusparseHandle_t    handle,
                           int                 nnz,
                           int*                pBufferSize);
 
+CUSPARSE_DEPRECATED(cusparseSpMV)
 cusparseStatus_t CUSPARSEAPI
 cusparseCsrmvEx_bufferSize(cusparseHandle_t         handle,
                            cusparseAlgMode_t        alg,
@@ -728,6 +729,7 @@ cusparseCsrmvEx_bufferSize(cusparseHandle_t         handle,
                            cudaDataType             executiontype,
                            size_t*                  bufferSizeInBytes);
 
+CUSPARSE_DEPRECATED(cusparseSpMV)
 cusparseStatus_t CUSPARSEAPI
 cusparseCsrmvEx(cusparseHandle_t         handle,
                 cusparseAlgMode_t        alg,
@@ -4039,6 +4041,7 @@ cusparseZcsr2csr_compress(cusparseHandle_t         handle,
                           int*                     csrSortedRowPtrC,
                           cuDoubleComplex          tol);
 
+CUSPARSE_DEPRECATED(cusparseDenseToSparse)
 cusparseStatus_t CUSPARSEAPI
 cusparseSdense2csr(cusparseHandle_t         handle,
                    int                      m,
@@ -4051,6 +4054,7 @@ cusparseSdense2csr(cusparseHandle_t         handle,
                    int*                     csrSortedRowPtrA,
                    int*                     csrSortedColIndA);
 
+CUSPARSE_DEPRECATED(cusparseDenseToSparse)
 cusparseStatus_t CUSPARSEAPI
 cusparseDdense2csr(cusparseHandle_t         handle,
                    int                      m,
@@ -4063,6 +4067,7 @@ cusparseDdense2csr(cusparseHandle_t         handle,
                    int*                     csrSortedRowPtrA,
                    int*                     csrSortedColIndA);
 
+CUSPARSE_DEPRECATED(cusparseDenseToSparse)
 cusparseStatus_t CUSPARSEAPI
 cusparseCdense2csr(cusparseHandle_t           handle,
                      int                      m,
@@ -4075,6 +4080,7 @@ cusparseCdense2csr(cusparseHandle_t           handle,
                      int*                     csrSortedRowPtrA,
                      int*                     csrSortedColIndA);
 
+CUSPARSE_DEPRECATED(cusparseDenseToSparse)
 cusparseStatus_t CUSPARSEAPI
 cusparseZdense2csr(cusparseHandle_t         handle,
                    int                      m,
@@ -4087,6 +4093,7 @@ cusparseZdense2csr(cusparseHandle_t         handle,
                    int*                     csrSortedRowPtrA,
                    int*                     csrSortedColIndA);
 
+CUSPARSE_DEPRECATED(cusparseSparseToDense)
 cusparseStatus_t CUSPARSEAPI
 cusparseScsr2dense(cusparseHandle_t         handle,
                    int                      m,
@@ -4098,6 +4105,7 @@ cusparseScsr2dense(cusparseHandle_t         handle,
                    float*                   A,
                    int                      lda);
 
+CUSPARSE_DEPRECATED(cusparseSparseToDense)
 cusparseStatus_t CUSPARSEAPI
 cusparseDcsr2dense(cusparseHandle_t         handle,
                    int                      m,
@@ -4109,6 +4117,7 @@ cusparseDcsr2dense(cusparseHandle_t         handle,
                    double*                  A,
                    int                      lda);
 
+CUSPARSE_DEPRECATED(cusparseSparseToDense)
 cusparseStatus_t CUSPARSEAPI
 cusparseCcsr2dense(cusparseHandle_t         handle,
                    int                      m,
@@ -4120,6 +4129,7 @@ cusparseCcsr2dense(cusparseHandle_t         handle,
                    cuComplex*               A,
                    int                      lda);
 
+CUSPARSE_DEPRECATED(cusparseSparseToDense)
 cusparseStatus_t CUSPARSEAPI
 cusparseZcsr2dense(cusparseHandle_t         handle,
                 int                      m,
@@ -4131,6 +4141,7 @@ cusparseZcsr2dense(cusparseHandle_t         handle,
                 cuDoubleComplex*         A,
                 int                      lda);
 
+CUSPARSE_DEPRECATED(cusparseDenseToSparse)
 cusparseStatus_t CUSPARSEAPI
 cusparseSdense2csc(cusparseHandle_t         handle,
                    int                      m,
@@ -4143,6 +4154,7 @@ cusparseSdense2csc(cusparseHandle_t         handle,
                    int*                     cscSortedRowIndA,
                    int*                     cscSortedColPtrA);
 
+CUSPARSE_DEPRECATED(cusparseDenseToSparse)
 cusparseStatus_t CUSPARSEAPI
 cusparseDdense2csc(cusparseHandle_t         handle,
                    int                      m,
@@ -4155,6 +4167,7 @@ cusparseDdense2csc(cusparseHandle_t         handle,
                    int*                     cscSortedRowIndA,
                    int*                     cscSortedColPtrA);
 
+CUSPARSE_DEPRECATED(cusparseDenseToSparse)
 cusparseStatus_t CUSPARSEAPI
 cusparseCdense2csc(cusparseHandle_t         handle,
                    int                      m,
@@ -4167,6 +4180,7 @@ cusparseCdense2csc(cusparseHandle_t         handle,
                    int*                     cscSortedRowIndA,
                    int*                     cscSortedColPtrA);
 
+CUSPARSE_DEPRECATED(cusparseDenseToSparse)
 cusparseStatus_t CUSPARSEAPI
 cusparseZdense2csc(cusparseHandle_t         handle,
                    int                      m,
@@ -4179,6 +4193,7 @@ cusparseZdense2csc(cusparseHandle_t         handle,
                    int*                     cscSortedRowIndA,
                    int*                     cscSortedColPtrA);
 
+CUSPARSE_DEPRECATED(cusparseSparseToDense)
 cusparseStatus_t CUSPARSEAPI
 cusparseScsc2dense(cusparseHandle_t         handle,
                    int                      m,
@@ -4190,6 +4205,7 @@ cusparseScsc2dense(cusparseHandle_t         handle,
                    float*                   A,
                    int                      lda);
 
+CUSPARSE_DEPRECATED(cusparseSparseToDense)
 cusparseStatus_t CUSPARSEAPI
 cusparseDcsc2dense(cusparseHandle_t         handle,
                    int                      m,
@@ -4201,6 +4217,7 @@ cusparseDcsc2dense(cusparseHandle_t         handle,
                    double*                  A,
                    int                      lda);
 
+CUSPARSE_DEPRECATED(cusparseSparseToDense)
 cusparseStatus_t CUSPARSEAPI
 cusparseCcsc2dense(cusparseHandle_t         handle,
                    int                      m,
@@ -4212,6 +4229,7 @@ cusparseCcsc2dense(cusparseHandle_t         handle,
                    cuComplex*               A,
                    int                      lda);
 
+CUSPARSE_DEPRECATED(cusparseSparseToDense)
 cusparseStatus_t CUSPARSEAPI
 cusparseZcsc2dense(cusparseHandle_t         handle,
                    int                      m,
@@ -5862,10 +5880,11 @@ cusparseCsr2cscEx2_bufferSize(cusparseHandle_t     handle,
 // #############################################################################
 
 typedef enum {
-    CUSPARSE_FORMAT_CSR        = 1, ///< Compressed Sparse Row (CSR)
-    CUSPARSE_FORMAT_CSC        = 2, ///< Compressed Sparse Column (CSC)
-    CUSPARSE_FORMAT_COO        = 3, ///< Coordinate (COO) - Structure of Arrays
-    CUSPARSE_FORMAT_COO_AOS    = 4, ///< Coordinate (COO) - Array of Structures
+    CUSPARSE_FORMAT_CSR         = 1, ///< Compressed Sparse Row (CSR)
+    CUSPARSE_FORMAT_CSC         = 2, ///< Compressed Sparse Column (CSC)
+    CUSPARSE_FORMAT_COO         = 3, ///< Coordinate (COO) - Structure of Arrays
+    CUSPARSE_FORMAT_COO_AOS     = 4, ///< Coordinate (COO) - Array of Structures
+    CUSPARSE_FORMAT_BLOCKED_ELL = 5, ///< Blocked ELL
 } cusparseFormat_t;
 
 typedef enum {
@@ -6022,6 +6041,19 @@ cusparseCreateCsr(cusparseSpMatDescr_t* spMatDescr,
                   cudaDataType          valueType);
 
 cusparseStatus_t CUSPARSEAPI
+cusparseCreateCsc(cusparseSpMatDescr_t* spMatDescr,
+                  int64_t               rows,
+                  int64_t               cols,
+                  int64_t               nnz,
+                  void*                 cscColOffsets,
+                  void*                 cscRowInd,
+                  void*                 cscValues,
+                  cusparseIndexType_t   cscColOffsetsType,
+                  cusparseIndexType_t   cscRowIndType,
+                  cusparseIndexBase_t   idxBase,
+                  cudaDataType          valueType);
+
+cusparseStatus_t CUSPARSEAPI
 cusparseCsrGet(cusparseSpMatDescr_t spMatDescr,
                int64_t*             rows,
                int64_t*             cols,
@@ -6040,6 +6072,12 @@ cusparseCsrSetPointers(cusparseSpMatDescr_t spMatDescr,
                        void*                csrColInd,
                        void*                csrValues);
 
+cusparseStatus_t CUSPARSEAPI
+cusparseCscSetPointers(cusparseSpMatDescr_t spMatDescr,
+                       void*                cscColOffsets,
+                       void*                cscRowInd,
+                       void*                cscValues);
+
 //------------------------------------------------------------------------------
 // ### COO ###
 
@@ -6055,6 +6093,7 @@ cusparseCreateCoo(cusparseSpMatDescr_t* spMatDescr,
                   cusparseIndexBase_t   idxBase,
                   cudaDataType          valueType);
 
+CUSPARSE_DEPRECATED(cusparseCreateCoo)
 cusparseStatus_t CUSPARSEAPI
 cusparseCreateCooAoS(cusparseSpMatDescr_t* spMatDescr,
                      int64_t               rows,
@@ -6078,6 +6117,7 @@ cusparseCooGet(cusparseSpMatDescr_t spMatDescr,
                cusparseIndexBase_t* idxBase,
                cudaDataType*        valueType);
 
+CUSPARSE_DEPRECATED(cusparseCooGet)
 cusparseStatus_t CUSPARSEAPI
 cusparseCooAoSGet(cusparseSpMatDescr_t spMatDescr,
                   int64_t*             rows,
@@ -6088,6 +6128,39 @@ cusparseCooAoSGet(cusparseSpMatDescr_t spMatDescr,
                   cusparseIndexType_t* idxType,
                   cusparseIndexBase_t* idxBase,
                   cudaDataType*        valueType);
+
+cusparseStatus_t CUSPARSEAPI
+cusparseCooSetPointers(cusparseSpMatDescr_t spMatDescr,
+                       void*                cooRows,
+                       void*                cooColumns,
+                       void*                cooValues);
+
+//------------------------------------------------------------------------------
+// ### BLOCKED ELL ###
+
+cusparseStatus_t CUSPARSEAPI
+cusparseCreateBlockedEll(cusparseSpMatDescr_t* spMatDescr,
+                         int64_t               rows,
+                         int64_t               cols,
+                         int64_t               ellBlockSize,
+                         int64_t               ellCols,
+                         void*                 ellColInd,
+                         void*                 ellValue,
+                         cusparseIndexType_t   ellIdxType,
+                         cusparseIndexBase_t   idxBase,
+                         cudaDataType          valueType);
+
+cusparseStatus_t CUSPARSEAPI
+cusparseBlockedEllGet(cusparseSpMatDescr_t spMatDescr,
+                      int64_t*             rows,
+                      int64_t*             cols,
+                      int64_t*             ellBlockSize,
+                      int64_t*             ellCols,
+                      void**               ellColInd,
+                      void**               ellValue,
+                      cusparseIndexType_t* ellIdxType,
+                      cusparseIndexBase_t* idxBase,
+                      cudaDataType*        valueType);
 
 // #############################################################################
 // # DENSE MATRIX DESCRIPTOR
@@ -6179,14 +6252,72 @@ cusparseSpVV(cusparseHandle_t     handle,
              void*                externalBuffer);
 
 // #############################################################################
+// # SPARSE TO DENSE
+// #############################################################################
+
+typedef enum {
+    CUSPARSE_SPARSETODENSE_ALG_DEFAULT = 0
+} cusparseSparseToDenseAlg_t;
+
+cusparseStatus_t CUSPARSEAPI
+cusparseSparseToDense_bufferSize(cusparseHandle_t           handle,
+                                 cusparseSpMatDescr_t       matA,
+                                 cusparseDnMatDescr_t       matB,
+                                 cusparseSparseToDenseAlg_t alg,
+                                 size_t*                    bufferSize);
+
+cusparseStatus_t CUSPARSEAPI
+cusparseSparseToDense(cusparseHandle_t           handle,
+                      cusparseSpMatDescr_t       matA,
+                      cusparseDnMatDescr_t       matB,
+                      cusparseSparseToDenseAlg_t alg,
+                      void*                      buffer);
+
+
+// #############################################################################
+// # DENSE TO SPARSE
+// #############################################################################
+
+typedef enum {
+    CUSPARSE_DENSETOSPARSE_ALG_DEFAULT = 0
+} cusparseDenseToSparseAlg_t;
+
+cusparseStatus_t CUSPARSEAPI
+cusparseDenseToSparse_bufferSize(cusparseHandle_t           handle,
+                                 cusparseDnMatDescr_t       matA,
+                                 cusparseSpMatDescr_t       matB,
+                                 cusparseDenseToSparseAlg_t alg,
+                                 size_t*                    bufferSize);
+
+cusparseStatus_t CUSPARSEAPI
+cusparseDenseToSparse_analysis(cusparseHandle_t           handle,
+                               cusparseDnMatDescr_t       matA,
+                               cusparseSpMatDescr_t       matB,
+                               cusparseDenseToSparseAlg_t alg,
+                               void*                      buffer);
+
+cusparseStatus_t CUSPARSEAPI
+cusparseDenseToSparse_convert(cusparseHandle_t           handle,
+                              cusparseDnMatDescr_t       matA,
+                              cusparseSpMatDescr_t       matB,
+                              cusparseDenseToSparseAlg_t alg,
+                              void*                      buffer);
+
+// #############################################################################
 // # SPARSE MATRIX-VECTOR MULTIPLICATION
 // #############################################################################
 
 typedef enum {
-    CUSPARSE_MV_ALG_DEFAULT = 0,
-    CUSPARSE_COOMV_ALG      = 1,
-    CUSPARSE_CSRMV_ALG1     = 2,
-    CUSPARSE_CSRMV_ALG2     = 3
+    CUSPARSE_MV_ALG_DEFAULT
+                        CUSPARSE_DEPRECATED_ENUM(CUSPARSE_SPMV_ALG_DEFAULT) = 0,
+    CUSPARSE_COOMV_ALG  CUSPARSE_DEPRECATED_ENUM(CUSPARSE_SPMV_COO_ALG1)    = 1,
+    CUSPARSE_CSRMV_ALG1 CUSPARSE_DEPRECATED_ENUM(CUSPARSE_SPMV_CSR_ALG1)    = 2,
+    CUSPARSE_CSRMV_ALG2 CUSPARSE_DEPRECATED_ENUM(CUSPARSE_SPMV_CSR_ALG2)    = 3,
+    CUSPARSE_SPMV_ALG_DEFAULT = 0,
+    CUSPARSE_SPMV_CSR_ALG1    = 2,
+    CUSPARSE_SPMV_CSR_ALG2    = 3,
+    CUSPARSE_SPMV_COO_ALG1    = 1,
+    CUSPARSE_SPMV_COO_ALG2    = 4
 } cusparseSpMVAlg_t;
 
 cusparseStatus_t CUSPARSEAPI
@@ -6224,27 +6355,16 @@ typedef enum {
     CUSPARSE_COOMM_ALG2 CUSPARSE_DEPRECATED_ENUM(CUSPARSE_SPMM_COO_ALG2) = 2,
     CUSPARSE_COOMM_ALG3 CUSPARSE_DEPRECATED_ENUM(CUSPARSE_SPMM_COO_ALG3) = 3,
     CUSPARSE_CSRMM_ALG1 CUSPARSE_DEPRECATED_ENUM(CUSPARSE_SPMM_CSR_ALG1) = 4,
-    CUSPARSE_SPMM_ALG_DEFAULT = 0,
-    CUSPARSE_SPMM_COO_ALG1    = 1,
-    CUSPARSE_SPMM_COO_ALG2    = 2,
-    CUSPARSE_SPMM_COO_ALG3    = 3,
-    CUSPARSE_SPMM_COO_ALG4    = 5,
-    CUSPARSE_SPMM_CSR_ALG1    = 4,
-    CUSPARSE_SPMM_CSR_ALG2    = 6,
+    CUSPARSE_SPMM_ALG_DEFAULT      = 0,
+    CUSPARSE_SPMM_COO_ALG1         = 1,
+    CUSPARSE_SPMM_COO_ALG2         = 2,
+    CUSPARSE_SPMM_COO_ALG3         = 3,
+    CUSPARSE_SPMM_COO_ALG4         = 5,
+    CUSPARSE_SPMM_CSR_ALG1         = 4,
+    CUSPARSE_SPMM_CSR_ALG2         = 6,
+    CUSPARSE_SPMM_CSR_ALG3         = 12,
+    CUSPARSE_SPMM_BLOCKED_ELL_ALG1 = 13
 } cusparseSpMMAlg_t;
-
-cusparseStatus_t CUSPARSEAPI
-cusparseSpMM(cusparseHandle_t     handle,
-             cusparseOperation_t  opA,
-             cusparseOperation_t  opB,
-             const void*          alpha,
-             cusparseSpMatDescr_t matA,
-             cusparseDnMatDescr_t matB,
-             const void*          beta,
-             cusparseDnMatDescr_t matC,
-             cudaDataType         computeType,
-             cusparseSpMMAlg_t    alg,
-             void*                externalBuffer);
 
 cusparseStatus_t CUSPARSEAPI
 cusparseSpMM_bufferSize(cusparseHandle_t     handle,
@@ -6258,6 +6378,32 @@ cusparseSpMM_bufferSize(cusparseHandle_t     handle,
                         cudaDataType         computeType,
                         cusparseSpMMAlg_t    alg,
                         size_t*              bufferSize);
+
+cusparseStatus_t CUSPARSEAPI
+cusparseSpMM_preprocess(cusparseHandle_t      handle,
+                        cusparseOperation_t   opA,
+                        cusparseOperation_t   opB,
+                        const void*           alpha,
+                        cusparseSpMatDescr_t  matA,
+                        cusparseDnMatDescr_t  matB,
+                        const void*           beta,
+                        cusparseDnMatDescr_t  matC,
+                        cudaDataType          computeType,
+                        cusparseSpMMAlg_t     alg,
+                        void*                 externalBuffer);
+
+cusparseStatus_t CUSPARSEAPI
+cusparseSpMM(cusparseHandle_t     handle,
+             cusparseOperation_t  opA,
+             cusparseOperation_t  opB,
+             const void*          alpha,
+             cusparseSpMatDescr_t matA,
+             cusparseDnMatDescr_t matB,
+             const void*          beta,
+             cusparseDnMatDescr_t matC,
+             cudaDataType         computeType,
+             cusparseSpMMAlg_t    alg,
+             void*                externalBuffer);
 
 // #############################################################################
 // # SPARSE MATRIX - SPARSE MATRIX MULTIPLICATION (SpGEMM)
@@ -6320,9 +6466,10 @@ cusparseSpGEMM_copy(cusparseHandle_t      handle,
                     cusparseSpGEMMDescr_t spgemmDescr);
 
 // #############################################################################
-// # GENERAL MATRIX-MATRIX PATTERN-CONSTRAINED MULTIPLICATION
+// # SAMPLED DENSE-DENSE MATRIX MULTIPLICATION
 // #############################################################################
 
+CUSPARSE_DEPRECATED(cusparseSDDMM)
 cusparseStatus_t CUSPARSEAPI
 cusparseConstrainedGeMM(cusparseHandle_t     handle,
                         cusparseOperation_t  opA,
@@ -6335,6 +6482,7 @@ cusparseConstrainedGeMM(cusparseHandle_t     handle,
                         cudaDataType         computeType,
                         void*                externalBuffer);
 
+CUSPARSE_DEPRECATED(cusparseSDDMM)
 cusparseStatus_t CUSPARSEAPI
 cusparseConstrainedGeMM_bufferSize(cusparseHandle_t     handle,
                                    cusparseOperation_t  opA,
@@ -6347,11 +6495,51 @@ cusparseConstrainedGeMM_bufferSize(cusparseHandle_t     handle,
                                    cudaDataType         computeType,
                                    size_t*              bufferSize);
 
-//==============================================================================
-//==============================================================================
+typedef enum {
+    CUSPARSE_SDDMM_ALG_DEFAULT = 0
+} cusparseSDDMMAlg_t;
+
+cusparseStatus_t CUSPARSEAPI
+cusparseSDDMM_bufferSize(cusparseHandle_t     handle,
+                         cusparseOperation_t  opA,
+                         cusparseOperation_t  opB,
+                         const void*          alpha,
+                         cusparseDnMatDescr_t matA,
+                         cusparseDnMatDescr_t matB,
+                         const void*          beta,
+                         cusparseSpMatDescr_t matC,
+                         cudaDataType         computeType,
+                         cusparseSDDMMAlg_t   alg,
+                         size_t*              bufferSize);
+
+cusparseStatus_t CUSPARSEAPI
+cusparseSDDMM_preprocess(cusparseHandle_t     handle,
+                         cusparseOperation_t  opA,
+                         cusparseOperation_t  opB,
+                         const void*          alpha,
+                         cusparseDnMatDescr_t matA,
+                         cusparseDnMatDescr_t matB,
+                         const void*          beta,
+                         cusparseSpMatDescr_t matC,
+                         cudaDataType         computeType,
+                         cusparseSDDMMAlg_t   alg,
+                         void*                externalBuffer);
+
+cusparseStatus_t CUSPARSEAPI
+cusparseSDDMM(cusparseHandle_t     handle,
+              cusparseOperation_t  opA,
+              cusparseOperation_t  opB,
+              const void*          alpha,
+              cusparseDnMatDescr_t matA,
+              cusparseDnMatDescr_t matB,
+              const void*          beta,
+              cusparseSpMatDescr_t matC,
+              cudaDataType         computeType,
+              cusparseSDDMMAlg_t   alg,
+              void*                externalBuffer);
 
 #if defined(__cplusplus)
-}
+} // extern "C"
 #endif // defined(__cplusplus)
 
 #undef CUSPARSE_DEPRECATED

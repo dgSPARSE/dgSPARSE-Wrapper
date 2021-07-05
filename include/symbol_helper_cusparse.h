@@ -25,14 +25,20 @@ namespace sparse_wrapper
 
     enum SparseLibraryEnum
     {
-        CUSPARSE_LIB,
+        CUSPARSE_LIB_11_0,
+        CUSPARSE_LIB_11_1,
+        CUSPARSE_LIB_11_2,
+        CUSPARSE_LIB_11_3,
         DGSPARSE_LIB, // Deep Graph Sparse Library
         SPARSE_LIBRARY_COUNT
     };
 
     constexpr const char *sparse_libray_path[SPARSE_LIBRARY_COUNT] = {
+        "/usr/local/cuda-11.0/lib64/libcusparse.so.real", // this should be the path to the real cuSPARSE library
         "/usr/local/cuda-11.1/lib64/libcusparse.so.real", // this should be the path to the real cuSPARSE library
-        "/usr/local/cuda-11.1/lib64/dgsparse.so" // this should be the path to the dgSPARSE library
+        "/usr/local/cuda-11.2/lib64/libcusparse.so.real", // this should be the path to the real cuSPARSE library
+        "/usr/local/cuda-11.3/lib64/libcusparse.so.real", // this should be the path to the real cuSPARSE library
+        "/usr/local/dgsparse/lib64/dgsparse.so" // this should be the path to the dgSPARSE library
     };
 
     extern void *__sparse_handle__[SPARSE_LIBRARY_COUNT];
@@ -55,7 +61,10 @@ namespace sparse_wrapper
     namespace runtime
     {
 
-        GENERATE_SPARSE_LIBRARY_LOADER(CUSPARSE_LIB);
+        GENERATE_SPARSE_LIBRARY_LOADER(CUSPARSE_LIB_11_0);
+        GENERATE_SPARSE_LIBRARY_LOADER(CUSPARSE_LIB_11_1);
+        GENERATE_SPARSE_LIBRARY_LOADER(CUSPARSE_LIB_11_2);
+        GENERATE_SPARSE_LIBRARY_LOADER(CUSPARSE_LIB_11_3);
         GENERATE_SPARSE_LIBRARY_LOADER(DGSPARSE_LIB);
 
         inline void LibraryCleanup()

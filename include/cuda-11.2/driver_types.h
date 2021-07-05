@@ -55,8 +55,8 @@
 #define __UNDEF_CUDA_INCLUDE_COMPILER_INTERNAL_HEADERS_DRIVER_TYPES_H__
 #endif
 
-#include "cuda-11.1/crt/host_defines.h"
-#include "cuda-11.1/vector_types.h"
+#include "cuda-11.2/crt/host_defines.h"
+#include "cuda-11.2/vector_types.h"
 
 /**
  * \defgroup CUDART_TYPES Data types used by CUDA Runtime
@@ -545,9 +545,18 @@ enum __device_builtin__ cudaError
     cudaErrorInvalidDevice                =     101,
 
     /**
-     * This indicates that the device doesn't have valid Grid License.
+     * This indicates that the device doesn't have a valid Grid License.
      */
     cudaErrorDeviceNotLicensed            =     102,
+
+   /**
+    * By default, the CUDA runtime may perform a minimal set of self-tests,
+    * as well as CUDA driver tests, to establish the validity of both.
+    * Introduced in CUDA 11.2, this error return indicates that at least one
+    * of these tests has failed and the validity of either the runtime
+    * or the driver could not be established.
+    */
+   cudaErrorSoftwareValidityNotEstablished  =     103,
 
     /**
      * This indicates an internal startup failure in the CUDA runtime.
@@ -674,6 +683,13 @@ enum __device_builtin__ cudaError
      * than what is supported by the CUDA driver and PTX JIT compiler.
      */
     cudaErrorUnsupportedPtxVersion        =     222,
+
+    /**
+     * This indicates that the JIT compilation was disabled. The JIT compilation compiles
+     * PTX. The runtime may fall back to compiling PTX if an application does not contain
+     * a suitable binary for the current device.
+     */
+    cudaErrorJitCompilationDisabled       =     223,
 
     /**
      * This indicates that the device kernel source is invalid.
@@ -1009,7 +1025,8 @@ enum __device_builtin__ cudaChannelFormatKind
     cudaChannelFormatKindSigned           =   0,      /**< Signed channel format */
     cudaChannelFormatKindUnsigned         =   1,      /**< Unsigned channel format */
     cudaChannelFormatKindFloat            =   2,      /**< Float channel format */
-    cudaChannelFormatKindNone             =   3       /**< No channel format */
+    cudaChannelFormatKindNone             =   3,      /**< No channel format */
+    cudaChannelFormatKindNV12             =   4       /**< Unsigned 8-bit integers, planar 4:2:0 YUV format */
 };
 
 /**
@@ -1735,7 +1752,97 @@ enum __device_builtin__ cudaDeviceAttr
     cudaDevAttrMaxBlocksPerMultiprocessor     = 106, /**< Maximum number of blocks per multiprocessor */
     cudaDevAttrReservedSharedMemoryPerBlock   = 111, /**< Shared memory reserved by CUDA driver per block in bytes */
     cudaDevAttrSparseCudaArraySupported       = 112, /**< Device supports sparse CUDA arrays and sparse CUDA mipmapped arrays */
-    cudaDevAttrHostRegisterReadOnlySupported  = 113  /**< Device supports using the ::cuMemHostRegister flag CU_MEMHOSTERGISTER_READ_ONLY to register memory that must be mapped as read-only to the GPU */
+    cudaDevAttrHostRegisterReadOnlySupported  = 113,  /**< Device supports using the ::cudaHostRegister flag cudaHostRegisterReadOnly to register memory that must be mapped as read-only to the GPU */
+    cudaDevAttrMaxTimelineSemaphoreInteropSupported = 114,  /**< External timeline semaphore interop is supported on the device */
+    cudaDevAttrMemoryPoolsSupported           = 115  /**< Device supports using the ::cudaMallocAsync and ::cudaMemPool family of APIs */
+};
+
+/**
+ * CUDA memory pool attributes
+ */
+enum __device_builtin__ cudaMemPoolAttr
+{
+    /**
+     * (value type = cuuint64_t)
+     * Amount of reserved memory in bytes to hold onto before trying
+     * to release memory back to the OS. When more than the release
+     * threshold bytes of memory are held by the memory pool, the
+     * allocator will try to release memory back to the OS on the
+     * next call to stream, event or context synchronize. (default 0)
+     */
+    cudaMemPoolReuseFollowEventDependencies   = 0x1,
+
+    /**
+     * (value type = int)
+     * Allow cuMemAllocAsync to use memory asynchronously freed
+     * in another streams as long as a stream ordering dependency
+     * of the allocating stream on the free action exists.
+     * Cuda events and null stream interactions can create the required
+     * stream ordered dependencies. (default enabled)
+     */
+    cudaMemPoolReuseAllowOpportunistic        = 0x2,
+
+    /**
+     * (value type = int)
+     * Allow reuse of already completed frees when there is no dependency
+     * between the free and allocation. (default enabled)
+     */
+    cudaMemPoolReuseAllowInternalDependencies = 0x3,
+
+
+    /**
+     * (value type = int)
+     * Allow cuMemAllocAsync to insert new stream dependencies
+     * in order to establish the stream ordering required to reuse
+     * a piece of memory released by cuFreeAsync (default enabled).
+     */
+    cudaMemPoolAttrReleaseThreshold           = 0x4
+};
+
+enum __device_builtin__ cudaMemLocationType {
+    cudaMemLocationTypeInvalid = 0,
+    cudaMemLocationTypeDevice = 1
+};
+
+struct __device_builtin__ cudaMemLocation {
+    enum cudaMemLocationType type;
+    int id;
+};
+
+enum __device_builtin__ cudaMemAccessFlags {
+    cudaMemAccessFlagsProtNone = 0,
+    cudaMemAccessFlagsProtRead = 1,
+    cudaMemAccessFlagsProtReadWrite = 3
+};
+
+struct __device_builtin__ cudaMemAccessDesc {
+    struct cudaMemLocation  location;
+    enum cudaMemAccessFlags flags;
+};
+
+enum __device_builtin__ cudaMemAllocationType {
+    cudaMemAllocationTypeInvalid = 0x0,
+    cudaMemAllocationTypePinned  = 0x1,
+    cudaMemAllocationTypeMax     = 0xFFFFFFFF 
+};
+
+enum __device_builtin__ cudaMemAllocationHandleType {
+    cudaMemHandleTypeNone                    = 0x0,  /**< Does not allow any export mechanism. > */
+    cudaMemHandleTypePosixFileDescriptor     = 0x1,  /**< Allows a file descriptor to be used for exporting. Permitted only on POSIX systems. (int) */
+    cudaMemHandleTypeWin32                   = 0x2,  /**< Allows a Win32 NT handle to be used for exporting. (HANDLE) */
+    cudaMemHandleTypeWin32Kmt                = 0x4  /**< Allows a Win32 KMT handle to be used for exporting. (D3DKMT_HANDLE) */
+};
+
+struct __device_builtin__ cudaMemPoolProps {
+    enum cudaMemAllocationType         allocType;
+    enum cudaMemAllocationHandleType   handleTypes;
+    struct cudaMemLocation             location;
+    void                              *win32SecurityAttributes;
+    unsigned char                      reserved[64];
+};
+
+struct __device_builtin__ cudaMemPoolPtrExportData {
+    unsigned char reserved[64];
 };
 
 /**
@@ -1792,7 +1899,7 @@ struct __device_builtin__ cudaDeviceProp
     int          computeMode;                /**< Compute mode (See ::cudaComputeMode) */
     int          maxTexture1D;               /**< Maximum 1D texture size */
     int          maxTexture1DMipmap;         /**< Maximum 1D mipmapped texture size */
-    int          maxTexture1DLinear;         /**< Maximum size for 1D textures bound to linear memory */
+    int          maxTexture1DLinear;         /**< Deprecated, do not use. Use cudaDeviceGetTexture1DLinearMaxWidth() or cuDeviceGetTexture1DLinearMaxWidth() instead. */
     int          maxTexture2D[2];            /**< Maximum 2D texture dimensions */
     int          maxTexture2DMipmap[2];      /**< Maximum 2D mipmapped texture dimensions */
     int          maxTexture2DLinear[3];      /**< Maximum dimensions (width, height, pitch) for 2D textures bound to pitched memory */
@@ -2142,7 +2249,7 @@ enum __device_builtin__ cudaExternalSemaphoreHandleType {
      * Handle is an opaque shared NT handle
      */
     cudaExternalSemaphoreHandleTypeOpaqueWin32    = 2,
-    /** 
+    /**
      * Handle is an opaque, globally shared handle
      */
     cudaExternalSemaphoreHandleTypeOpaqueWin32Kmt = 3,
@@ -2165,7 +2272,15 @@ enum __device_builtin__ cudaExternalSemaphoreHandleType {
     /**
      * Handle is a shared KMT handle referencing a D3D11 keyed mutex object
      */
-    cudaExternalSemaphoreHandleTypeKeyedMutexKmt  = 8
+    cudaExternalSemaphoreHandleTypeKeyedMutexKmt  = 8,
+    /**
+     * Handle is an opaque handle file descriptor referencing a timeline semaphore
+     */
+    cudaExternalSemaphoreHandleTypeTimelineSemaphoreFd  = 9,
+    /**
+     * Handle is an opaque handle file descriptor referencing a timeline semaphore
+     */
+    cudaExternalSemaphoreHandleTypeTimelineSemaphoreWin32  = 10
 };
 
 /**
@@ -2178,8 +2293,10 @@ struct __device_builtin__ cudaExternalSemaphoreHandleDesc {
     enum cudaExternalSemaphoreHandleType type;
     union {
         /**
-         * File descriptor referencing the semaphore object. Valid
-         * when type is ::cudaExternalSemaphoreHandleTypeOpaqueFd
+         * File descriptor referencing the semaphore object. Valid when
+         * type is one of the following:
+         * - ::cudaExternalSemaphoreHandleTypeOpaqueFd
+         * - ::cudaExternalSemaphoreHandleTypeTimelineSemaphoreFd
          */
         int fd;
         /**
@@ -2190,6 +2307,7 @@ struct __device_builtin__ cudaExternalSemaphoreHandleDesc {
          * - ::cudaExternalSemaphoreHandleTypeD3D12Fence
          * - ::cudaExternalSemaphoreHandleTypeD3D11Fence
          * - ::cudaExternalSemaphoreHandleTypeKeyedMutex
+         * - ::cudaExternalSemaphoreHandleTypeTimelineSemaphoreWin32
          * Exactly one of 'handle' and 'name' must be non-NULL. If
          * type is one of the following:
          * ::cudaExternalSemaphoreHandleTypeOpaqueWin32Kmt
@@ -2218,10 +2336,11 @@ struct __device_builtin__ cudaExternalSemaphoreHandleDesc {
     unsigned int flags;
 };
 
+#if defined(__CUDA_API_VERSION_INTERNAL)
 /**
- * External semaphore  signal parameters
+ * External semaphore signal parameters(deprecated)
  */
-struct __device_builtin__ cudaExternalSemaphoreSignalParams {
+struct __device_builtin__ cudaExternalSemaphoreSignalParams_v1 {
     struct {
         /**
          * Parameters for fence objects
@@ -2264,9 +2383,9 @@ struct __device_builtin__ cudaExternalSemaphoreSignalParams {
 };
 
 /**
-* External semaphore wait parameters
+* External semaphore wait parameters(deprecated)
 */
-struct __device_builtin__ cudaExternalSemaphoreWaitParams {
+struct __device_builtin__ cudaExternalSemaphoreWaitParams_v1 {
     struct {
         /**
         * Parameters for fence objects
@@ -2310,6 +2429,105 @@ struct __device_builtin__ cudaExternalSemaphoreWaitParams {
      * For all other types of ::cudaExternalSemaphore_t, flags must be zero.
      */
     unsigned int flags;
+};
+#endif
+
+/**
+ * External semaphore signal parameters, compatible with driver type
+ */
+struct __device_builtin__ cudaExternalSemaphoreSignalParams{
+    struct {
+        /**
+         * Parameters for fence objects
+         */
+        struct {
+            /**
+             * Value of fence to be signaled
+             */
+            unsigned long long value;
+        } fence;
+        union {
+            /**
+             * Pointer to NvSciSyncFence. Valid if ::cudaExternalSemaphoreHandleType
+             * is of type ::cudaExternalSemaphoreHandleTypeNvSciSync.
+             */
+            void *fence;
+            unsigned long long reserved;
+        } nvSciSync;
+        /**
+         * Parameters for keyed mutex objects
+         */
+        struct {
+            /*
+             * Value of key to release the mutex with
+             */
+            unsigned long long key;
+        } keyedMutex;
+        unsigned int reserved[12];
+    } params;
+    /**
+     * Only when ::cudaExternalSemaphoreSignalParams is used to
+     * signal a ::cudaExternalSemaphore_t of type
+     * ::cudaExternalSemaphoreHandleTypeNvSciSync, the valid flag is 
+     * ::cudaExternalSemaphoreSignalSkipNvSciBufMemSync: which indicates
+     * that while signaling the ::cudaExternalSemaphore_t, no memory
+     * synchronization operations should be performed for any external memory
+     * object imported as ::cudaExternalMemoryHandleTypeNvSciBuf.
+     * For all other types of ::cudaExternalSemaphore_t, flags must be zero.
+     */
+    unsigned int flags;
+    unsigned int reserved[16];
+};
+
+/**
+ * External semaphore wait parameters, compatible with driver type
+ */
+struct __device_builtin__ cudaExternalSemaphoreWaitParams {
+    struct {
+        /**
+        * Parameters for fence objects
+        */
+        struct {
+            /**
+            * Value of fence to be waited on
+            */
+            unsigned long long value;
+        } fence;
+        union {
+            /**
+             * Pointer to NvSciSyncFence. Valid if ::cudaExternalSemaphoreHandleType
+             * is of type ::cudaExternalSemaphoreHandleTypeNvSciSync.
+             */
+            void *fence;
+            unsigned long long reserved;
+        } nvSciSync;
+        /**
+         * Parameters for keyed mutex objects
+         */
+        struct {
+            /**
+             * Value of key to acquire the mutex with
+             */
+            unsigned long long key;
+            /**
+             * Timeout in milliseconds to wait to acquire the mutex
+             */
+            unsigned int timeoutMs;
+        } keyedMutex;
+        unsigned int reserved[10];
+    } params;
+    /**
+     * Only when ::cudaExternalSemaphoreSignalParams is used to
+     * signal a ::cudaExternalSemaphore_t of type
+     * ::cudaExternalSemaphoreHandleTypeNvSciSync, the valid flag is 
+     * ::cudaExternalSemaphoreSignalSkipNvSciBufMemSync: which indicates
+     * that while waiting for the ::cudaExternalSemaphore_t, no memory
+     * synchronization operations should be performed for any external memory
+     * object imported as ::cudaExternalMemoryHandleTypeNvSciBuf.
+     * For all other types of ::cudaExternalSemaphore_t, flags must be zero.
+     */
+    unsigned int flags;
+    unsigned int reserved[16];
 };
 
 
@@ -2370,6 +2588,11 @@ typedef __device_builtin__ struct CUgraphNode_st *cudaGraphNode_t;
 typedef __device_builtin__ struct CUfunc_st *cudaFunction_t;
 
 /**
+ * CUDA memory pool
+ */
+typedef __device_builtin__ struct CUmemPoolHandle_st *cudaMemPool_t;
+
+/**
  * CUDA cooperative group scope
  */
 enum __device_builtin__ cudaCGScope {
@@ -2404,6 +2627,24 @@ struct __device_builtin__ cudaKernelNodeParams {
 };
 
 /**
+ * External semaphore signal node parameters
+ */
+struct __device_builtin__ cudaExternalSemaphoreSignalNodeParams {
+    cudaExternalSemaphore_t* extSemArray;                        /**< Array of external semaphore handles. */
+    const struct cudaExternalSemaphoreSignalParams* paramsArray; /**< Array of external semaphore signal parameters. */
+    unsigned int numExtSems;                                     /**< Number of handles and parameters supplied in extSemArray and paramsArray. */
+};
+
+/**
+ * External semaphore wait node parameters
+ */
+struct __device_builtin__ cudaExternalSemaphoreWaitNodeParams {
+    cudaExternalSemaphore_t* extSemArray;                      /**< Array of external semaphore handles. */
+    const struct cudaExternalSemaphoreWaitParams* paramsArray; /**< Array of external semaphore wait parameters. */
+    unsigned int numExtSems;                                   /**< Number of handles and parameters supplied in extSemArray and paramsArray. */
+};
+
+/**
 * CUDA Graph node types
 */
 enum __device_builtin__ cudaGraphNodeType {
@@ -2431,9 +2672,10 @@ enum __device_builtin__ cudaGraphExecUpdateResult {
     cudaGraphExecUpdateError                  = 0x1, /**< The update failed for an unexpected reason which is described in the return value of the function */
     cudaGraphExecUpdateErrorTopologyChanged   = 0x2, /**< The update failed because the topology changed */
     cudaGraphExecUpdateErrorNodeTypeChanged   = 0x3, /**< The update failed because a node type changed */
-    cudaGraphExecUpdateErrorFunctionChanged   = 0x4, /**< The update failed because the function of a kernel node changed */
+    cudaGraphExecUpdateErrorFunctionChanged   = 0x4, /**< The update failed because the function of a kernel node changed (CUDA driver < 11.2) */
     cudaGraphExecUpdateErrorParametersChanged = 0x5, /**< The update failed because the parameters changed in a way that is not supported */
-    cudaGraphExecUpdateErrorNotSupported      = 0x6  /**< The update failed because something about the node is not supported */
+    cudaGraphExecUpdateErrorNotSupported      = 0x6, /**< The update failed because something about the node is not supported */
+    cudaGraphExecUpdateErrorUnsupportedFunctionChange = 0x7 /**< The update failed because the function of a kernel node changed in an unsupported way */
 };
 
 /** @} */
