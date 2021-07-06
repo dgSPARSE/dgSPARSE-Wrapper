@@ -3,10 +3,12 @@
 #include "cuda-11.1/cusparse_v2.h"
 #include "dgsparse/dgsparse.h"
 #include "symbol_helper_cusparse.h"
+#include "runtime_info.h"
 
 #pragma GCC diagnostic ignored "-Wpointer-arith"
 #define DGSPARSE
 using namespace sparse_wrapper;
+using namespace sparse_wrapper::runtime;
 
 cusparseStatus_t CUSPARSEAPI
 cusparseCreate(cusparseHandle_t *handle) {
