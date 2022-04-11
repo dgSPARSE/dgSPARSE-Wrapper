@@ -117,8 +117,8 @@ python3 train.py --dataset cora --gpu 0 --self-loop
 
 4. Run GCN based on dgSPARSE
 ```bash
-cd /usr/local/cuda-11.1/lib64/
-cp /dgsparsewrapper/libdgsparsewrapper.so.11.1 ./
+cd /usr/local/cuda-11.3/lib64/
+cp /dgsparsewrapper/libdgsparsewrapper.so.11.3 ./
 mkdir -p /usr/local/dgsparse/lib64/
 cp /sparselib/dgsparse.so /usr/local/dgsparse/lib64/
 
