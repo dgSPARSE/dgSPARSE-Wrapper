@@ -66,10 +66,12 @@ dgl-gpu:torch-1.2.0-cu11 \
 /bin/bash
 
 cd /dgSPARSE-Wrapper/example/cuda_spmm
-nvcc -lcusparse -std=c++11 -o cuda_spmm spmm.cu
+make
 
 # Test original cusparse performance
-./cuda_spmm data/p2p-Gnutella31.mtx
+./spmm.out data/p2p-Gnutella31.mtx
+or 
+./spmm.out data/p2p-Gnutella31.mtx 32
 
 # Test new library performance
 cp /usr/local/cuda/lib64/libcusparse.so.11.3.0.10 /usr/local/cuda/lib64/libcusparse.so.real

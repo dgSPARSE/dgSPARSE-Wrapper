@@ -2,6 +2,7 @@ bin
 .vscode
 *.so
 *.o
+*.out
 *.a
 *.log
 *.swo
