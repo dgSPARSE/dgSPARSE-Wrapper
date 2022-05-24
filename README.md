@@ -77,7 +77,7 @@ or
 cp /usr/local/cuda/lib64/libcusparse.so.11.3.0.10 /usr/local/cuda/lib64/libcusparse.so.real
 mkdir -p /usr/local/dgsparse/lib64/
 cp /dgSPARSE-Wrapper/lib/dgsparse.so /usr/local/dgsparse/lib64/
-LD_PRELOAD=/dgSPARSE-Wrapper/bin/libdgsparsewrapper.so.11.1 ./cuda_spmm data/p2p-Gnutella31.mtx
+LD_PRELOAD=/dgSPARSE-Wrapper/bin/libdgsparsewrapper.so.11.1 ./spmm.out data/p2p-Gnutella31.mtx
 
 ```
 ### Framework Example

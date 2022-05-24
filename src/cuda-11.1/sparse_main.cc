@@ -5395,7 +5395,7 @@ cusparseStatus_t CUSPARSEAPI cusparseSpMM(
     const void *alpha, cusparseSpMatDescr_t matA, cusparseDnMatDescr_t matB,
     const void *beta, cusparseDnMatDescr_t matC, cudaDataType computeType,
     cusparseSpMMAlg_t alg, void *externalBuffer) {
-  LOAD_SPARSE_SYMBOL_FOR_ONCE(DGSPARSE_LIB, cuda_csr_spmm);
+  LOAD_SPARSE_SYMBOL_FOR_ONCE(DGSPARSE_LIB, spmm_cuda);
   // LOG(INFO, "Enter %s() our dgsparse", __FUNCTION__);
   int64_t rows;
   int64_t cols;
@@ -5417,12 +5417,9 @@ cusparseStatus_t CUSPARSEAPI cusparseSpMM(
   cusparseCsrGet(matA, &rows, &cols, &nnz, &csrRowOffsets, &csrColInd,
                  &csrValues, &csrRowOffsetsType, &csrColIndType, &idxBase,
                  &valueType);
-
-  int layout_code = 1; // row major
   cusparseDnMatGet(matB, &Brows, &Bcols, &ld, &matBValues, &BType, &order);
   cusparseDnMatGetValues(matC, &matCValues);
-  _real_sym(SpMMConfig(Bcols), layout_code, (int)rows, (int)cols, (int)Bcols,
-            (int)nnz, reinterpret_cast<int *>(csrRowOffsets),
+  _real_sym((int)rows, (int)Bcols, reinterpret_cast<int *>(csrRowOffsets),
             reinterpret_cast<int *>(csrColInd),
             reinterpret_cast<float *>(csrValues),
             reinterpret_cast<float *>(matBValues),
